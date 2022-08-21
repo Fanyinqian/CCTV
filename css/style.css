@@ -1,0 +1,7398 @@
+/* 设置 body 样式 */
+body {
+    overflow-y: inherit;
+    font-family: PingFangSC-Regular, Helvetica, Arial, Microsoft Yahei, sans-serif;
+}
+
+/* 设置顶部容器样式 */
+header {
+    width: 100%;
+    height: 88px;
+    background: #181818;
+}
+
+/* 顶部导航栏样式 */
+.header-inner {
+    width: 962px;
+    height: 46px;
+    margin: 0 auto;
+    position: relative;
+}
+
+/* 左侧导航栏 */
+.nav {
+    float: left;
+    list-style: none;
+}
+
+.nav>li {
+    height: 46px;
+    margin-right: 20px;
+    float: left;
+    line-height: 46px;
+}
+
+.nav>li.panda {
+    /* 使 HOT图标 相对其定位 */
+    position: relative;
+}
+
+li.rotate180:hover .header-popup {
+    display: block;
+}
+
+.nav a {
+    display: block;
+    width: 100%;
+    height: 100%;
+    color: #fff;
+    font-size: 12px;
+    text-decoration: none;
+}
+
+.nav a:hover {
+    color: #bf0614;
+}
+
+/* 导航栏图标共同样式 */
+.nav i {
+    background: url(../images/nav-icon.png) no-repeat;
+}
+
+/* 首页图标 */
+i.home {
+    width: 16px;
+    height: 14px;
+    margin: 15px 6px 0 0;
+    /* 设置浮动，使其不会影响行高 */
+    float: left;
+    background-position: -53px -102px;
+}
+
+/* 时政图标 */
+i.group {
+    width: 13px;
+    height: 8px;
+    margin: 19px 0 0 7px;
+    float: right;
+    background: url(../images/down-arrow.png) no-repeat;
+    transition: all .3s;
+}
+
+li.rotate180>a {
+    color: #bf0614;
+}
+
+/* 0度时政图标 */
+li.rotate0 i.group {
+    transform: rotateZ(0deg);
+}
+
+
+/* 180度时政图标 */
+li.rotate180 i.group {
+    transform: rotateZ(180deg);
+    background: url(../images/up-arrow.png) no-repeat;
+}
+
+/* HOT图标 */
+i.hot {
+    width: 27px;
+    height: 13px;
+    /* 调整位置 */
+    position: absolute;
+    top: 2px;
+    right: -28px;
+    background-position: -40px -8px;
+}
+
+/* AICG图标 */
+i.AIGC {
+    display: inline-block;
+    width: 51px;
+    height: 20px;
+    margin-top: 13px;
+    background-position: 0 -100px;
+}
+
+.nav li.nav-item {
+    padding-right: 15px;
+    margin-right: 15px;
+    cursor: pointer;
+    /* 分隔线 */
+    background: url(../images/split-line.png) no-repeat right center;
+}
+
+
+.nav>li.nav-item:last-of-type:hover i {
+    background-position: 0px -80px;
+}
+
+
+/* 右侧菜单栏 */
+.menu {
+    display: flex;
+    float: right;
+}
+
+/* 菜单栏内图标 */
+.menu i {
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    margin-top: 13px;
+    background: url(../images/nav-icon.png) no-repeat;
+}
+
+
+/* 搜索图标 */
+i.search {
+    background-position: 0 -40px;
+}
+
+/* 用户图标 */
+i.user {
+    background-position: 0 -20px;
+}
+
+/* 分类图标 */
+i.classify {
+    background-position: 0 0;
+}
+
+/* 菜单栏内容 */
+.search-wrapper,
+.user-wrapper,
+.classify-wrapper {
+    width: 20px;
+    height: 46px;
+    padding: 0 10px;
+    cursor: pointer;
+}
+
+/* 当鼠标移入菜单栏时，相应图标变红 */
+.search-wrapper:hover i {
+    background-position: -20px -40px;
+}
+
+.user-wrapper:hover i {
+    background-position: -20px -20px;
+}
+
+.classify-wrapper:hover i {
+    background-position: -20px 0;
+}
+
+/* 二级导航栏容器 */
+.nav-second {
+    width: 100%;
+    height: 41px;
+    border-top: 1px solid #343434;
+    /* 设置绝对定位，脱离文档流 */
+    position: absolute;
+    left: 0;
+    cursor: default;
+}
+
+/* 固定二级导航 && 切换二级导航 */
+ul.current-list,
+.header-popup {
+    width: 962px;
+    height: 41px;
+    border-top: 1px solid #343434;
+    margin: 0 auto;
+    position: relative;
+    top: -1px;
+    line-height: 37px;
+}
+
+
+.header-popup {
+    display: none;
+    z-index: 5;
+    background: #181818;
+}
+
+ul.current-list>li,
+.header-popup li {
+    height: 41px;
+    padding-right: 24px;
+    float: left;
+    list-style: none;
+}
+
+ul.current-list a,
+.nav .header-popup a {
+    /* 设置为行内元素，使a的高度只被内容撑开 */
+    display: inline;
+    color: #999999;
+    text-decoration: none;
+    font-size: 12px;
+}
+
+ul.current-list a:hover,
+.header-popup a:hover {
+    color: #bf0614;
+}
+
+/* 鼠标移入时，语言图片切换成红色 */
+.lan-wrapper:hover img.lan-cur {
+    display: block;
+}
+
+.lan-wrapper:hover img.lan {
+    display: none;
+}
+
+/* 语言图片 */
+img.lan,
+img.lan-cur {
+    display: block;
+    padding-top: 9px;
+}
+
+img.lan-cur {
+    display: none;
+}
+
+/* 滑动搜索框容器 */
+.slide-search {
+    width: 0;
+    height: 44px;
+    padding: 1px 0;
+    /* 去除溢出，隐藏滑动容器内容区 */
+    overflow: hidden;
+    position: absolute;
+    top: 0;
+    right: 80px;
+    z-index: 50;
+}
+
+/* 搜索框滑动出现的动画 */
+@keyframes slideAppear {
+    from {
+        width: 0;
+    }
+
+    to {
+        width: 440px;
+    }
+}
+
+/* 搜索框滑动收起的动画 */
+@keyframes slideDisappear {
+    from {
+        width: 440px;
+    }
+
+    to {
+        width: 0;
+    }
+}
+
+/* 滑动容器内容区 */
+.slide-con {
+    display: none;
+    width: 440px;
+    border-radius: 5px;
+    font-size: 14px;
+    color: #666;
+    line-height: 34px;
+    background-color: #181818;
+}
+
+/* 搜索框 */
+.search-box {
+    width: 432px;
+    height: 34px;
+    margin: 3px 4px;
+    border: 2px solid #dddddd;
+    border-radius: 5px;
+}
+
+/* 搜索框内容区 */
+.box-con {
+    display: flex;
+    width: 432px;
+    height: 34px;
+    /* 使 搜索按钮 相对其定位 */
+    position: relative;
+    background: #fff;
+}
+
+/* 网页 && 视频 */
+.select {
+    width: 70px;
+    height: 34px;
+    border-right: 1px solid #ddd;
+    /* 使 选择菜单 相对其定位 */
+    position: relative;
+}
+
+/* 搜索种类 */
+p.search-type {
+    width: 38px;
+    height: 34px;
+    padding-left: 32px;
+    line-height: 34px;
+    cursor: pointer;
+    background: url(../images/search-down.png) no-repeat 10px 13px;
+}
+
+
+/* 选择菜单 */
+.select-menu {
+    display: none;
+    width: 70px;
+    position: absolute;
+    left: 0;
+    top: 34px;
+    background-color: #fff;
+}
+
+.select-menu a {
+    display: block;
+    width: 70px;
+    height: 40px;
+    font-size: 14px;
+    color: #666;
+    line-height: 34px;
+    text-align: center;
+    text-decoration: none;
+}
+
+
+
+/* 搜索表单容器 */
+.input-wrapper {
+    width: 259px;
+    height: 34px;
+}
+
+/* 搜索输入框 */
+.input-wrapper input {
+    width: 239px;
+    height: 14px;
+    padding: 10px;
+    /* 去除边框 */
+    border: none;
+    outline: none;
+    font-size: 14px;
+}
+
+
+
+/* 热搜榜 */
+.hot-wrapper {
+    width: 65px;
+    line-height: 34px;
+    background: url(../images/search-hot.png) no-repeat left center;
+}
+
+.hot-wrapper a {
+    display: inline-block;
+    width: 42px;
+    height: 34px;
+    padding-left: 23px;
+    color: #bf0614;
+    text-decoration: none;
+}
+
+/* 搜索按钮 */
+input.search-btn {
+    width: 30px;
+    height: 34px;
+    border: none;
+    outline: none;
+    /* 设置绝对定位 */
+    position: absolute;
+    /* 使其位于搜索框内容区最右侧 */
+    right: 0;
+    cursor: pointer;
+    background: url(../images/search-btn-cur.png) no-repeat center;
+}
+
+/* 登录框 */
+.login-interface {
+    width: 224px;
+    height: 0;
+    /* 去除溢出，隐藏登录框容器 */
+    overflow: hidden;
+    position: absolute;
+    top: 46px;
+    right: -4px;
+    z-index: 50;
+    transition: all .4s linear;
+}
+
+
+/* 登录框容器 */
+.login-wrapper {
+    width: 224px;
+    height: 290px;
+    margin-top: -290px;
+    transition: all .4s linear;
+}
+
+/* 登录框内容区 */
+.login-con {
+    width: 216px;
+    height: 280px;
+    margin: 0 auto;
+    box-shadow: 0px 0px 2px 2px rgb(0 0 0 / 20%);
+    color: #434242;
+    background: #fff;
+}
+
+.login-box {
+    width: 216px;
+    height: 256px;
+}
+
+.login-form-list {
+    width: 176px;
+    padding: 0 20px;
+    font-size: 14px;
+}
+
+.login-form-list a:hover {
+    color: #bf0614;
+}
+
+/* 账号 */
+.login-form input {
+    width: 156px;
+    height: 14px;
+    padding: 7px 9px;
+    border: 1px solid #D0D0D0;
+    color: #3d3d3d;
+}
+
+
+input.username {
+    margin-top: 21px;
+}
+
+/* 密码 */
+input.password {
+    margin: 20px 0 7px;
+}
+
+/* 帮助提示容器 */
+.check-wrapper {
+    display: flex;
+    width: 176px;
+    height: 37px;
+    font-size: 12px;
+}
+
+.check-wrapper input {
+    margin: 0;
+}
+
+.check-wrapper p {
+    width: 108px;
+    margin: 2.8px 0 0 5.2px;
+}
+
+.check-wrapper a {
+    margin: 2.8px 0 0 0;
+    color: #222222;
+    text-decoration: none;
+}
+
+/* 登录 && 注册 按钮容器 */
+.login-btn-wrapper {
+    width: 100%;
+    height: 54px;
+}
+
+.login-btn {
+    width: 100%;
+    height: 34px;
+}
+
+/* 登录 */
+a.log {
+    display: inline-block;
+    width: 86px;
+    height: 34px;
+    line-height: 34px;
+    text-align: center;
+    color: #fff;
+    font-size: 14px;
+    text-decoration: none;
+    background-color: #c00614;
+}
+
+a.log:hover {
+    background-color: #dadada;
+}
+
+/* 注册 */
+a.register {
+    display: inline-block;
+    width: 78px;
+    margin-left: 8px;
+    /* 调整位置 */
+    position: relative;
+    top: 1px;
+    color: #222222;
+    text-align: center;
+    text-decoration: none;
+}
+
+/* 合作账号登录 */
+.log-cooper {
+    width: 186px;
+    margin: 0 15px;
+    border-top: 1px solid #e6e6e6;
+}
+
+/* 提示文字 */
+.log-cooper p {
+    height: 40px;
+    line-height: 40px;
+    font-size: 14px;
+    color: #525252;
+}
+
+/* 其他登录方式 */
+.other-log img {
+    float: left;
+    margin-right: 10px;
+}
+
+
+/* 分类界面 */
+.slide-classify-wrapper {
+    width: 100%;
+    height: 0;
+    overflow: hidden;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 100;
+    background-color: #ffffff;
+    transition: all .6s linear;
+}
+
+/* 鼠标移入，字体变红 */
+.slide-classify-wrapper a:hover {
+    color: #bf0614;
+}
+
+.title-list {
+    height: 90px;
+    margin: 0 auto;
+}
+
+/* 央视网logo */
+.map-logo {
+    width: 175px;
+    height: 50px;
+    margin: 0 auto 20px;
+    padding-top: 20px;
+}
+
+/* 关闭按钮 */
+.close {
+    width: 28px;
+    height: 28px;
+    margin-right: -481px;
+    position: absolute;
+    right: 50%;
+    top: 42px;
+    cursor: pointer;
+    background: url(../images/nav-icon.png) no-repeat center center;
+    background-position: -40px -21px;
+}
+
+/* 鼠标移入时，图片变红 */
+.close:hover {
+    background-position: -40px -50px;
+}
+
+/* 分类内容区 */
+.classify-con {
+    width: 962px;
+    margin: 0 auto;
+    padding: 20px 0;
+    font-size: 14px;
+    color: #525252;
+    line-height: 24px;
+}
+
+.classify-con a {
+    margin-right: 25px;
+    color: #525252;
+    text-decoration: none;
+}
+
+/* 频道列表 */
+ul.channel-list {
+    height: 100%;
+    overflow-y: auto;
+    list-style: none;
+}
+
+ul.channel-list>li {
+    padding-left: 40px;
+    overflow: hidden;
+    background-repeat: no-repeat;
+    background-position: left top;
+}
+
+
+ul.channel-list>li:first-of-type {
+    margin-top: 20px;
+    background-image: url(../images/channel-1.png);
+}
+
+ul.channel-list>li:nth-of-type(2) {
+    background-image: url(../images/channel-2.png);
+}
+
+ul.channel-list>li:nth-of-type(3) {
+    background-image: url(../images/channel-3.png);
+}
+
+ul.channel-list>li:nth-of-type(4) {
+    background-image: url(../images/channel-4.png);
+}
+
+ul.channel-list>li:nth-of-type(5) {
+    background-image: url(../images/channel-5.png);
+}
+
+ul.channel-list>li:nth-of-type(6) {
+    background-image: url(../images/channel-6.png);
+}
+
+ul.channel-list>li:nth-of-type(7) {
+    background-image: url(../images/channel-7.png);
+}
+
+/* 频道目录 */
+.channel {
+    margin-bottom: 12px;
+    font-weight: 700;
+}
+
+ul.channel-list>li:first-of-type .channel,
+ul.channel-list>li:nth-of-type(6) .channel {
+    margin-bottom: 0;
+}
+
+ul.channel-list>li:last-of-type .channel {
+    margin-bottom: 20px;
+}
+
+ul.channel-list>li:nth-of-type(6) a {
+    display: inline-block;
+}
+
+ul.channel-list>li:nth-of-type(7) a:not(:first-of-type) {
+    font-weight: 400;
+}
+
+/* 专栏 */
+.column {
+    margin-bottom: 24px;
+    font-weight: 400;
+}
+
+/* 类别分隔线 */
+.line {
+    width: 99%;
+    height: 1px;
+    margin: 30px 0;
+    background-color: #f0f0f0;
+}
+
+.logo-list ul {
+    width: 940px;
+}
+
+/* 解决高度塌陷问题 */
+.clearfix::before,
+.clearfix::after {
+    content: '';
+    display: table;
+    clear: both;
+}
+
+.logo-list li {
+    width: 53px;
+    height: 21px;
+    margin-bottom: 22px;
+    margin-right: 50px;
+    float: left;
+}
+
+.logo-list a {
+    display: block;
+    width: 100%;
+    height: 21px;
+    margin-right: 0;
+}
+
+.logo-list .other-logo li {
+    width: auto;
+}
+
+/* 第二个导航条 */
+.second-header {
+    width: 100%;
+    height: 59px;
+    border-bottom: 1px solid #0084ff;
+    position: fixed;
+    top: 0;
+    z-index: 1000;
+    background: #fff;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity .6s;
+}
+
+/* 导航条主体部分 */
+.second-inner {
+    display: flex;
+    width: 962px;
+    height: 100%;
+    margin: 0 auto;
+}
+
+.second-inner nav {
+    height: 100%;
+}
+
+/* CCTV Logo */
+nav img {
+    width: 138px;
+    height: 15px;
+    margin: 22px 24px 0 0;
+}
+
+ul.second-nav-list {
+    display: flex;
+}
+
+ul.second-nav-list>li {
+    height: 100%;
+    line-height: 59px;
+}
+
+ul.second-nav-list>li.highlight {
+    position: relative;
+}
+
+ul.second-nav-list>li>a {
+    display: inline-block;
+    height: 100%;
+    padding: 0 15px;
+    color: #222;
+    font-size: 14px;
+    text-decoration: none;
+}
+
+/* 鼠标移入，字体变蓝 */
+ul.second-nav-list>li:hover>a {
+    color: #0084ff;
+}
+
+ul.second-nav-list>li:hover i.nav-arrow {
+    transform: rotateZ(180deg);
+    background: url(../images/nav-arrow-cur.png) no-repeat center center;
+}
+
+i.nav-arrow {
+    display: inline-block;
+    width: 10px;
+    height: 100%;
+    margin-left: 1.11px;
+    vertical-align: middle;
+    background: url(../images/nav-arrow.png) no-repeat center center;
+    transition: transform .3s;
+}
+
+.second-inner .inputVal {
+    width: 230px;
+    height: 28px;
+    border: 1px solid #0084ff;
+    background-color: #fff;
+}
+
+.second-inner .banner-search {
+    margin-top: 16px;
+    margin-left: 37px;
+    float: right;
+    /* 覆盖绝对定位样式 */
+    position: static;
+}
+
+.second-inner .inputVal input,
+.second-inner .inputVal a {
+    color: #222222;
+}
+
+/* 用户栏 */
+.headpic {
+    display: none;
+    width: 30px;
+    height: 30px;
+    margin-top: 16px;
+    background: url(../images/headpic.png) no-repeat;
+    background-size: 100%;
+}
+
+.headpic:hover {
+    background-image: url(../images/headpic-cur.png);
+}
+
+/* 导航栏弹出层 */
+.channel-popup {
+    width: 100%;
+    height: 0px;
+    overflow: hidden;
+    position: absolute;
+    left: 0;
+    top: 60px;
+    background: #fff;
+    transition: height .4s linear;
+}
+
+li.current .channel-popup {
+    box-shadow: 0px 2px 4px 2px rgb(0 0 0 / 20%);
+}
+
+/* 频道大全动画 */
+@keyframes channelSlideDown {
+    from {
+        height: 0;
+    }
+
+    to {
+        height: 173px;
+    }
+}
+
+@keyframes channelSlideUp {
+    from {
+        height: 173px;
+    }
+
+    to {
+        height: 0;
+    }
+}
+
+/* 栏目大全动画 */
+@keyframes columnSlideDown {
+    from {
+        height: 0;
+    }
+
+    to {
+        height: 225px;
+    }
+}
+
+@keyframes columnSlideUp {
+    from {
+        height: 225px;
+    }
+
+    to {
+        height: 0;
+    }
+}
+
+/* 全部动画 */
+@keyframes allDown {
+    from {
+        height: 0;
+    }
+
+    to {
+        height: 347px;
+    }
+}
+
+@keyframes alllightUp {
+    from {
+        height: 347px;
+    }
+
+    to {
+        height: 0;
+    }
+}
+
+ul.channel-box {
+    width: 962px;
+    height: 153px;
+    padding-top: 20px;
+    margin-left: -481px;
+    position: absolute;
+    left: 50%;
+    bottom: 0;
+}
+
+ul.channel-box>li {
+    height: 31px;
+    padding: 0;
+    margin: 0 42px 20px 0;
+    float: left;
+}
+
+ul.channel-box a {
+    display: inline-block;
+    height: 100%;
+}
+
+ul.channel-box img {
+    width: 69px;
+    height: 31px;
+}
+
+/* 栏目大全弹出层 */
+.column-inner {
+    width: 100%;
+    height: 225px;
+    position: absolute;
+    bottom: 0;
+}
+
+.column-header {
+    height: 45px;
+    background: #f2f2f2;
+}
+
+.column-header>ul>li {
+    float: left;
+    line-height: 45px;
+}
+
+.column-header>ul>li:hover a {
+    color: #0084FF;
+}
+
+.column-header a {
+    display: inline-block;
+    padding: 0 9px;
+    font-size: 14px;
+    color: #222;
+    text-decoration: none;
+}
+
+.column-header>ul>li.cur a {
+    color: #0084ff;
+    font-weight: bold;
+    background: #fff;
+}
+
+/* 栏目内容 */
+.column-body {
+    display: none;
+    width: 962px;
+    height: 140px;
+    padding: 28px 0 0 0;
+    margin: 0 auto;
+}
+
+.column-body>li {
+    width: 160px;
+    float: left;
+}
+
+.list {
+    margin-bottom: 18px;
+    line-height: 18px;
+    font-size: 14px;
+}
+
+.list a {
+    color: #222;
+    text-decoration: none;
+}
+
+.list a:hover {
+    color: #0084ff;
+}
+
+.highlight-inner {
+    height: 141px;
+    position: absolute;
+    bottom: 0;
+}
+
+.highlight-pop ul>li {
+    float: left;
+}
+
+.highlight-pop ul a {
+    display: inline-block;
+    position: relative;
+    color: #222;
+    text-decoration: none;
+}
+
+.highlight-pop ul a:hover {
+    color: #0084FF;
+}
+
+i.new {
+    display: inline-block;
+    width: 32px;
+    height: 18px;
+    position: absolute;
+    top: -15px;
+    right: -32px;
+    background: url(../images/new.png) no-repeat;
+}
+
+i.aihot {
+    display: inline-block;
+    width: 32px;
+    height: 18px;
+    position: absolute;
+    top: -15px;
+    right: -32px;
+    background: url(../images/aihot.png) no-repeat;
+}
+
+/* 全部弹出层内容区 */
+.all-inner {
+    width: 962px;
+    height: 347px;
+    margin-left: -481px;
+    position: absolute;
+    left: 50%;
+    bottom: 0;
+}
+
+.all-inner h3 {
+    float: left;
+    line-height: 70px;
+    font-size: 14px;
+    font-weight: bold;
+    color: #222;
+}
+
+ul.all-title {
+    margin-top: 20px;
+    float: right;
+}
+
+ul.all-title>li {
+    width: 80px;
+    height: 30px;
+    margin-left: 10px;
+    float: left;
+    line-height: 30px;
+    text-align: center;
+    font-size: 14px;
+    background: url(../images/all-bg-Min.png) no-repeat center center;
+}
+
+ul.all-title>li:hover {
+    background: url(../images/all-bg-cur-Min.png) no-repeat center center;
+}
+
+ul.all-title a {
+    display: inline-block;
+    padding: 0 15px;
+    color: #fff;
+    text-decoration: none;
+}
+
+/* 全部中的频道大全 */
+.all-body {
+    border-top: 2px solid #e6e6e6;
+    margin-bottom: 5px;
+}
+
+.all-inner h4 {
+    width: 86px;
+    margin-top: 18px;
+    float: left;
+    line-height: 18px;
+    font-size: 14px;
+    font-weight: bold;
+    color: #999;
+}
+
+.all-body>ul {
+    width: 876px;
+    margin-top: 10px;
+    float: left;
+}
+
+.all-body>ul>li {
+    height: 31px;
+    margin: 10px 31px 10px 0;
+    float: left;
+    line-height: normal;
+}
+
+.all-body>ul>li:nth-child(9),
+.all-body>ul>li:nth-child(18) {
+    margin-right: 0;
+}
+
+.all-body>ul img {
+    display: block;
+    width: 69px;
+    height: 31px;
+}
+
+.all-footer {
+    margin-bottom: 10px;
+}
+
+.all-inner .all-footer h4 {
+    margin-top: 0px;
+    line-height: 24px;
+}
+
+.all-footer>ul {
+    width: 876px;
+    float: left;
+}
+
+.all-footer>ul>li {
+    width: 116px;
+    height: 24px;
+    float: left;
+    line-height: 24px;
+}
+
+.all-footer>ul a {
+    color: #222;
+    font-size: 14px;
+    text-decoration: none;
+}
+
+.all-footer>ul a:hover {
+    color: #0084FF;
+}
+
+/* 更多 */
+.all-footer li.all-more {
+    width: 58px;
+    text-align: center;
+}
+
+.all-footer .all-more a {
+    display: inline-block;
+    width: 58px;
+    height: 22px;
+    border: 1px solid #0084ff;
+    border-radius: 22px;
+    line-height: 22px;
+    color: #0084ff;
+    font-size: 14px;
+}
+
+.all-footer li.all-more:hover a {
+    color: #fff;
+    background: #0084ff;
+}
+
+/* 侧边导航栏 */
+.floatNav {
+    display: none;
+    width: 60px;
+    position: fixed;
+    right: 10px;
+    bottom: 10px;
+    z-index: 999;
+    font-size: 12px;
+    line-height: 16px;
+    text-align: center;
+}
+
+.floatNav-inner {
+    width: 100%;
+    padding-top: 5px;
+    border-radius: 5px;
+    box-shadow: 0 0 8px rgb(51 51 51 / 15%);
+    background-color: #fff;
+    background-image: url(../images/floatNav.png);
+    background-position: top center;
+    background-repeat: no-repeat;
+    background-size: 100% auto;
+}
+
+.floatNav-bg {
+    width: 100%;
+    height: 100%;
+    padding-bottom: 5px;
+    background: url(../images/floatNav-bg.png) no-repeat bottom center;
+    background-size: 100% auto;
+}
+
+.floatNav-inner li {
+    margin-bottom: 4px;
+    position: relative;
+    transition: transform .3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.floatNav-item {
+    display: inline-block;
+    width: 100%;
+    padding-top: 30px;
+    position: relative;
+    color: #222222;
+    text-decoration: none;
+    background-position: center 0px;
+    background-repeat: no-repeat;
+}
+
+/* 鼠标移入出现二维码 */
+li.phone:hover .code {
+    display: block;
+    animation: phonePop .3s 0s ease-out forwards;
+}
+
+/* 手机访问下的二维码 */
+.code {
+    display: none;
+    width: 77px;
+    height: 125px;
+    padding: 26px 32px 18px 26px;
+    overflow: hidden;
+    position: absolute;
+    right: 60px;
+    top: -58px;
+    z-index: 999;
+    cursor: default;
+    background-image: url(../images/code-bg.png);
+}
+
+.code>img {
+    display: block;
+    width: 77px;
+    height: 77px;
+    margin-bottom: 8px;
+}
+
+.code>p {
+    font-size: 14px;
+    line-height: 16px;
+    color: #5a5e62;
+    text-align: center;
+}
+
+/* 手机访问弹出动画 */
+@keyframes phonePop {
+    0% {
+        opacity: .5;
+        transform: scale(.5);
+        transform-origin: center right;
+        display: block;
+    }
+
+    60% {
+        opacity: 1;
+        transform: scale(1);
+        transform-origin: center right;
+    }
+
+    100% {
+        opacity: 1;
+        transform: scale(1);
+        transform-origin: center right;
+    }
+}
+
+/* banner 部分 */
+.banner-wrapper {
+    width: 100%;
+    height: 494px;
+    /* 使 轮播图容器 相对其定位 */
+    position: relative;
+}
+
+/* 固定专栏 */
+.fix-column {
+    width: 962px;
+    margin: 0 auto;
+    /* 使 banner-logo 相对其定位 */
+    position: relative;
+}
+
+.banner-wrapper .fix-column {
+    height: 100%;
+}
+
+.banner-logo {
+    width: 194px;
+    height: 22px;
+    position: absolute;
+    top: 25px;
+    left: 10px;
+    z-index: 10;
+    cursor: pointer;
+}
+
+.banner-logo img {
+    width: 100%;
+    height: 100%;
+}
+
+.banner-search {
+    width: 300px;
+    height: 30px;
+    position: absolute;
+    left: 284px;
+    top: 20px;
+    z-index: 10;
+}
+
+/* 输入框 */
+.inputVal {
+    width: 232px;
+    height: 30px;
+    padding-left: 20px;
+    border-top-left-radius: 15px;
+    border-bottom-left-radius: 15px;
+    float: left;
+    /* 使 热榜 相对其定位 */
+    position: relative;
+    background-color: rgba(24, 24, 24, .5);
+}
+
+.inputVal input {
+    width: 165px;
+    height: 100%;
+    border: none;
+    outline: none;
+    font-size: 14px;
+    line-height: 100%;
+    vertical-align: top;
+    color: #FFFFFF;
+    background: none;
+}
+
+/* 设置输入框默认字体颜色 */
+.inputVal input::placeholder {
+    color: #FFFFFF;
+}
+
+/* 设置第二个导航栏中输入框字体颜色 */
+.second-inner input::placeholder {
+    color: #222222;
+}
+
+/* 选中状态输入框字体颜色 */
+.second-inner input.cur::placeholder,
+.inputVal input.cur::placeholder {
+    color: #b2b2b2;
+}
+
+/* 热榜 */
+.banner-search-hot {
+    display: inline-block;
+    width: 40px;
+    height: 100%;
+    padding-left: 20px;
+    position: absolute;
+    right: 0px;
+    top: 0;
+    font-size: 14px;
+    line-height: 30px;
+    text-decoration: none;
+    color: #FFFFFF;
+    background: url(../images/banner-search-hot.png) no-repeat left center;
+    background-size: 22%;
+}
+
+.banner-search-hot:hover,
+.second-inner .banner-search-hot:hover {
+    color: #ff3c00;
+}
+
+/* 热搜榜 */
+ul.search-list,
+ul.search-result {
+    display: none;
+    width: 220px;
+    padding: 17px 9px 8px;
+    border: 1px solid #dfdfdf;
+    border-bottom-left-radius: 5px;
+    border-bottom-right-radius: 5px;
+    position: absolute;
+    left: 12px;
+    top: 29px;
+    font-size: 14px;
+    background: #fff;
+}
+
+ul.search-list>span {
+    display: block;
+    height: 24px;
+    margin-bottom: 3px;
+    line-height: 24px;
+    color: #8a8a8a;
+}
+
+ul.search-list>li,
+ul.search-result>li {
+    height: 24px;
+    margin-bottom: 5px;
+    line-height: 24px;
+    color: #5d5d5d;
+    cursor: pointer;
+}
+
+ul.search-list a {
+    display: block;
+    width: 100%;
+    height: 100%;
+    color: #5d5d5d;
+    text-decoration: none;
+    text-align: left;
+}
+
+ul.search-list a:hover,
+ul.search-result>li:hover {
+    color: #0084ff;
+}
+
+/* 搜索关键词高亮 */
+ul.search-result span {
+    color: #0084FF;
+}
+
+ul.search-list i {
+    display: inline-block;
+    width: 18px;
+    margin-right: 4.1px;
+    text-align: center;
+    font-size: 16px;
+    line-height: 24px;
+    color: #e0e0e0;
+    font-family: "Impact";
+    /* 斜体 */
+    font-style: italic;
+    vertical-align: top;
+}
+
+ul.search-list>li:nth-of-type(1) i,
+.audience-content>ul>li:nth-of-type(1) i {
+    color: #085ab7;
+}
+
+ul.search-list>li:nth-of-type(2) i,
+.audience-content>ul>li:nth-of-type(2) i {
+    color: #1aa7ec;
+}
+
+ul.search-list>li:nth-of-type(3) i,
+.audience-content>ul>li:nth-of-type(3) i {
+    color: #4adedf;
+}
+
+/* 历史记录容器 */
+.history-wrapper {
+    display: none;
+    margin-bottom: 4px;
+    overflow: hidden;
+    color: #5d5d5d;
+}
+
+.history-header {
+    height: 24px;
+    margin-bottom: 4px;
+    line-height: 24px;
+}
+
+/* 历史记录 */
+.history-header .left {
+    float: left;
+    color: #8a8a8a;
+}
+
+/* 清除记录 */
+.history-header .right {
+    float: right;
+    cursor: pointer;
+}
+
+.history-header .right:hover {
+    color: #0084FF;
+}
+
+.history-header b {
+    padding-left: 20px;
+    background: url(../images/clear.png) no-repeat left center;
+}
+
+.history-header .right:hover b {
+    background-image: url(../images/clear-cur.png);
+}
+
+ul.history {
+    width: 230px;
+    margin-left: -5px;
+}
+
+ul.history>li {
+    width: 85px;
+    height: 30px;
+    padding: 0 10px;
+    margin: 0 5px;
+    margin-bottom: 10px;
+    border-radius: 3px;
+    overflow: hidden;
+    float: left;
+    line-height: 30px;
+    background-color: #f7f7f7;
+    cursor: pointer;
+}
+
+ul.history>li:hover {
+    background-color: #0084FF;
+    color: #FFFFFF;
+}
+
+.buttonVal {
+    width: 48px;
+    height: 30px;
+    border-top-right-radius: 15px;
+    border-bottom-right-radius: 15px;
+    float: right;
+    background-color: #0084ff;
+}
+
+/* 鼠标移入，按钮颜色渐变 */
+.buttonVal:hover {
+    background: linear-gradient(to bottom right, #0084ff, #0062f0);
+}
+
+.buttonVal input {
+    width: 48px;
+    height: 30px;
+    border: none;
+    outline: none;
+    color: #fff;
+    vertical-align: middle;
+    cursor: pointer;
+    background: url(../images/icon-searchMin.png) no-repeat center center;
+}
+
+/* 右侧菜单栏 */
+.floatText {
+    width: 175px;
+    height: 273px;
+    padding: 20px 20px 25px 20px;
+    position: absolute;
+    top: 0;
+    right: 0;
+    z-index: 10;
+    background: rgba(24, 24, 24, .7);
+}
+
+/* 正在热播 */
+.live-on {
+    padding-left: 26px;
+    border-bottom: 1px solid #6a7a8e;
+    font-size: 18px;
+    line-height: 48px;
+    font-weight: bold;
+    color: #FFFFFF;
+    cursor: default;
+    background: url(../images/icon-hot-Min.png) no-repeat left center;
+}
+
+.live-on.cur {
+    color: #0084FF;
+    background: url(../images/icon-hot-cur-Min.png) no-repeat left center;
+}
+
+/* 精彩推荐 */
+.live-introduce {
+    margin-top: 4px;
+    padding-left: 26px;
+    font-size: 18px;
+    font-weight: bold;
+    color: #FFFFFF;
+    line-height: 40px;
+    background: url(../images/icon-intro-Min.png) no-repeat left center;
+}
+
+.live-introduce.cur {
+    color: #0084FF;
+    background: url(../images/icon-intro-cur-Min.png) no-repeat left center;
+}
+
+li.bullet {
+    height: 30px;
+    line-height: 30px;
+    color: #FFFFFF;
+    font-size: 12px;
+}
+
+li.bullet a {
+    display: block;
+    height: 100%;
+    color: #FFFFFF;
+    text-decoration: none;
+}
+
+li.bullet.active a {
+    color: #0084FF;
+    font-weight: bolder;
+}
+
+/* 轮播图 */
+.swiper-container {
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    position: absolute;
+    top: 0;
+    background-color: rgb(178, 127, 255);
+}
+
+.swiper-wrapper {
+    display: none;
+    height: 100%;
+}
+
+/* 第一张轮播图的背景图 */
+.swiper-container>div.swiper-wrapper:first-of-type img {
+    width: auto;
+    height: 100%;
+}
+
+.swiper-wrapper.cur {
+    display: block;
+}
+
+/* 正在热播剧集容器 */
+.slider {
+    width: 747px;
+    margin-left: -481px;
+    overflow: hidden;
+    position: absolute;
+    top: 83px;
+    left: 50%;
+    z-index: 3;
+}
+
+.slider>a.button {
+    width: 20px;
+    height: 40px;
+    position: absolute;
+    top: 70px;
+    z-index: 10;
+    background-repeat: no-repeat;
+    background-position: center center;
+    cursor: pointer;
+}
+
+/* 向左倒退按钮 */
+.pro {
+    display: none;
+    background: url(../images/pro-Min.png);
+}
+
+.pro:hover {
+    background: url(../images/pro-cur-Min.png);
+}
+
+/* 向右快进按钮 */
+.next {
+    right: 15px;
+    background: url(../images/next-Min.png);
+}
+
+.next:hover {
+    background: url(../images/next-cur-Min.png);
+}
+
+/* 剧集内容区 */
+.con {
+    width: 635px;
+    padding-right: 112px;
+    /* 使 剧集列表 相对其测量左边距 */
+    position: relative;
+    background-color: transparent;
+    /* 蒙版 */
+    -webkit-mask: linear-gradient(270deg, rgba(0, 0, 0, 0) 0, rgba(0, 0, 0, .1) 10px, rgba(0, 0, 0, .8) 56px, #000) right top;
+}
+
+/* 剧集列表 */
+.con>ul {
+    width: 99999px;
+    transition: all .7s;
+}
+
+.con>ul>li {
+    width: 144px;
+    padding-right: 15px;
+    float: left;
+}
+
+.con a {
+    display: block;
+    width: 144px;
+    height: 180px;
+    border-radius: 5px;
+    overflow: hidden;
+}
+
+.con a>img {
+    width: 100%;
+    height: 100%;
+    transition: all 1s;
+}
+
+/* 鼠标移入时，图片放大 */
+.con a:hover img {
+    transform: scale(1.05);
+}
+
+/* 小标题 */
+.con h5 {
+    height: 36px;
+    padding-top: 7px;
+    font-size: 14px;
+    line-height: 18px;
+}
+
+.con h5 a {
+    color: #FFFFFF;
+    text-decoration: none;
+}
+
+.swiper-slide {
+    display: none;
+}
+
+.swiper-slide.current {
+    display: block;
+}
+
+/* 轮播图背景色 */
+.swiper-wrapper>a.swiper-slide:first-of-type {
+    background-color: rgb(147, 146, 151);
+}
+
+.swiper-wrapper>a.swiper-slide:nth-of-type(2) {
+    background-color: rgb(20, 33, 68);
+}
+
+.swiper-wrapper>a.swiper-slide:nth-of-type(3) {
+    background-color: rgb(183, 167, 140);
+}
+
+.swiper-wrapper>a.swiper-slide:nth-of-type(4) {
+    background-color: rgb(164, 125, 97);
+}
+
+.swiper-wrapper>a.swiper-slide:nth-of-type(5) {
+    background-color: rgb(172, 169, 178);
+}
+
+.swiper-wrapper>a.swiper-slide:nth-of-type(6) {
+    background-color: rgb(137, 136, 99);
+}
+
+a.swiper-slide>img {
+    display: block;
+    width: auto;
+    height: 100%;
+    margin: 0 auto;
+}
+
+/* banner底部固定栏容器 */
+.navigation-wrapper {
+    height: 110px;
+    padding-bottom: 10px;
+}
+
+ul.navigation-left {
+    width: 568px;
+    padding: 21px 0 0 19px;
+    float: left;
+}
+
+ul.navigation-left li {
+    float: left;
+}
+
+ul.navigation-left .navt {
+    height: 34px;
+    margin-bottom: 10px;
+    padding: 0px 20px;
+    /* 使 弹窗 相对其定位 */
+    position: relative;
+}
+
+ul.navigation-left .navt:hover {
+    border-radius: 34px;
+    box-shadow: rgba(0, 0, 0, 0.15) 0px 0px 10px;
+}
+
+ul.navigation-left a {
+    float: left;
+    line-height: 34px;
+    font-size: 16px;
+    font-weight: bold;
+    color: rgb(34, 34, 34);
+    text-decoration: none;
+}
+
+/* 左导航栏中的图标 */
+ul.navigation-left i {
+    display: none;
+}
+
+ul.navigation-left .navt:hover>a {
+    color: #0084ff;
+}
+
+.disappear-zero {
+    display: none;
+}
+
+/* 弹窗 */
+.navt-popup {
+    display: none;
+    padding: 0 0 18px 0;
+    position: absolute;
+    bottom: 34px;
+    left: -5px;
+    z-index: 20;
+}
+
+.pop-contain .navt-popup {
+    display: block;
+}
+
+.navt-pop-con {
+    width: 440px;
+    height: 258px;
+    border-radius: 5px;
+    box-shadow: 1px 0 8px rgb(0 0 0 / 45%);
+    background: #fff;
+}
+
+.pop-box {
+    margin-left: 25px;
+}
+
+.pop-box h3 {
+    height: 20px;
+    padding-top: 23px;
+}
+
+ul.navigation-left .pop-box h3 a {
+    display: inline-block;
+    line-height: 20px;
+    color: #333;
+    font-weight: normal;
+    font-size: 16px;
+    text-decoration: none;
+}
+
+ul.navigation-left .pop-box h3 a:hover {
+    color: #0084ff;
+}
+
+ul.navigation-left .pop-box .program {
+    width: 120px;
+    margin-right: 15px;
+    float: left;
+}
+
+.program:hover h4 {
+    color: #0084ff;
+}
+
+.program img {
+    width: 120px;
+    height: 150px;
+    margin-top: 13px;
+    border-radius: 5px;
+}
+
+.program h4 {
+    margin-bottom: 9px;
+    font-size: 14px;
+    line-height: 18px;
+    font-weight: normal;
+    color: #222;
+}
+
+/* 箭头 */
+.arrow {
+    content: '';
+    width: 0px;
+    height: 0px;
+    border-style: solid;
+    border-width: 6px;
+    border-color: #fff #fff transparent transparent;
+    box-shadow: 3px -2px 4px rgb(0 0 0 / 16%);
+    position: absolute;
+    bottom: 12px;
+    transform: rotate(135deg);
+}
+
+.navigation-left .arrow {
+    left: 41px;
+}
+
+/* 频道大全弹窗 */
+.pd-con {
+    left: -200px;
+}
+
+/* 频道大全弹窗内容 */
+.pd-pop-con {
+    width: 801px;
+    height: 158px;
+    padding: 25px 5px 0 25px;
+}
+
+.navigation-left .pd-pop-con .arrow {
+    left: 243px;
+}
+
+ul.pd-box>li {
+    width: 69px;
+    height: 31px;
+    margin-right: 20px;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+ul.pd-box img {
+    width: 69px;
+    height: 31px;
+}
+
+/* 听音弹窗 */
+.ty-con {
+    left: -15px;
+}
+
+/* 听音弹窗内容 */
+.ty-pop-con {
+    width: 120px;
+    height: 142px;
+}
+
+.navigation-left .ty-pop-con .arrow {
+    left: 53px;
+}
+
+.ty-box img {
+    width: 80px;
+    height: 80px;
+    padding: 20px 0 0 20px;
+}
+
+.ty-box p {
+    margin-top: 8px;
+    line-height: 18px;
+    font-size: 14px;
+    color: #999;
+    text-align: center;
+}
+
+/* 分隔线 */
+.navt-line {
+    width: 2px;
+    height: 62px;
+    margin-top: 29px;
+    float: left;
+    background: #c5c5c5;
+}
+
+ul.navigation-right {
+    width: 334px;
+    padding: 24px 0 0 39px;
+    float: left;
+}
+
+ul.navigation-right li {
+    width: 110px;
+    float: left;
+}
+
+ul.navigation-right li.special {
+    display: none;
+}
+
+.navt-right {
+    height: 30px;
+    margin-bottom: 13px;
+    /* 使 更多+ 弹窗相对其定位 */
+    position: relative;
+    line-height: 30px;
+}
+
+.navt-right a {
+    display: inline-block;
+    /* 使 i 相对其定位 */
+    position: relative;
+    color: #000;
+    font-size: 16px;
+    text-decoration: none;
+}
+
+/* 鼠标移入，字体变蓝 */
+.navt-right a:hover {
+    color: #0084ff;
+}
+
+.navt-right i {
+    width: 32px;
+    height: 18px;
+    position: absolute;
+    top: -10px;
+    right: -30px;
+}
+
+.navt-line-right {
+    display: none;
+    width: 1px;
+    float: left;
+    background: #c5c5c5;
+}
+
+/* 更多+ 弹窗 */
+.more-con {
+    display: none;
+    padding: 0 0 16px 0;
+    position: absolute;
+    bottom: 26px;
+    right: 45px;
+    z-index: 20;
+}
+
+/* 更多+ 弹窗内容 */
+.more-pop-con {
+    width: 570px;
+    height: 100px;
+    border-radius: 5px;
+    box-shadow: 1px 0 8px rgb(0 0 0 / 45%);
+    background-color: #fff;
+}
+
+.more-pop-con .arrow {
+    right: 40px;
+    bottom: 10px;
+}
+
+ul.more-box {
+    padding: 23px 0 0 25px;
+}
+
+ul.more-box>li {
+    width: 80px;
+    height: 20px;
+    margin-right: 30px;
+    margin-bottom: 14px;
+    float: left;
+    line-height: 20px;
+}
+
+ul.more-box>li.last,
+ul.channel-box>li.last {
+    margin-right: 0;
+}
+
+.navt-right ul.more-box a {
+    font-size: 16px;
+    color: #222;
+}
+
+ul.more-box a:hover {
+    color: #0084ff;
+}
+
+/* 手机看 容器 */
+.phone-wrapper {
+    display: none;
+    float: left;
+}
+
+.phone-box a {
+    color: #0085fe;
+    text-decoration: none;
+}
+
+/* 二维码 */
+.qr-code {
+    display: none;
+    width: 68px;
+    height: 68px;
+    padding: 8px 0 0 8px;
+    border-radius: 5px;
+    box-shadow: #ccc 1px 1px 10px;
+}
+
+.qr-code img {
+    width: 60px;
+    height: 60px;
+}
+
+/* 大标题 */
+.title {
+    padding-bottom: 10px;
+    font-size: 26px;
+    line-height: 46px;
+    font-weight: bold;
+}
+
+/* 今日热门 */
+.popular-wrapper {
+    padding-bottom: 9px;
+}
+
+ul.popular-today>li {
+    width: 178px;
+    margin-left: 18px;
+    margin-bottom: 14px;
+    border-radius: 5px;
+    float: left;
+    font-size: 14px;
+    line-height: 24px;
+    background-color: #FFFFFF;
+}
+
+ul.popular-today li.first {
+    width: 374px;
+    margin-left: 0;
+    margin-bottom: 0;
+    box-sizing: border-box;
+    box-shadow: 0 0 8px rgb(51 51 51 / 15%);
+    /* 裁去图片溢出部分，使四周为圆角 */
+    overflow: hidden;
+}
+
+.disappear-first,
+.disappear-second {
+    display: none;
+}
+
+ul.popular-today>li>a {
+    display: inline-block;
+    width: 178px;
+    height: 101px;
+    border-radius: 5px;
+    overflow: hidden;
+}
+
+ul.popular-today>li.first>a {
+    display: inline-block;
+    width: 374px;
+    height: 210px;
+    border-bottom-left-radius: 0;
+    border-bottom-right-radius: 0;
+    text-decoration: none;
+}
+
+/* 鼠标移入，图片放大 */
+ul.popular-today>li>a:hover img {
+    transform: scale(1.05);
+}
+
+ul.popular-today img {
+    width: 100%;
+    height: 100%;
+    transition: all 1s;
+}
+
+/* 热门描述容器 */
+li.first .text {
+    padding: 12px 20px 29px 20px;
+}
+
+/* 小标题 */
+ul.popular-today h5 {
+    width: 100%;
+    height: 48px;
+    padding-top: 2px;
+}
+
+ul.popular-today .text h5 {
+    height: 42px;
+    padding: 0;
+    font-size: 16px;
+    line-height: 42px;
+}
+
+ul.popular-today h5 a {
+    text-decoration: none;
+    color: #222222;
+}
+
+/* 鼠标移入，字体变蓝 */
+ul.popular-today h5 a:hover {
+    color: #0084ff;
+}
+
+.text p.brief {
+    color: #999999;
+}
+
+
+/* 直播导视 & 片库 头部 */
+.stream-header>h1,
+.television-header>h1 {
+    float: left;
+}
+
+.stream-header>h1>a,
+.television-header>h1>a {
+    color: #222222;
+    text-decoration: none;
+}
+
+/* 鼠标移入，字体变蓝 */
+.stream-header>h1>a:hover,
+.television-header>h1>a:hover {
+    color: #0084FF;
+}
+
+
+/* 节目单 */
+.program-list {
+    width: 90px;
+    height: 24px;
+    margin-left: 20px;
+    margin-top: 11px;
+    float: left;
+    text-align: center;
+    font-size: 14px;
+    line-height: 24px;
+    vertical-align: top;
+    background: url(../images/program-list.png) no-repeat;
+}
+
+/* 鼠标移入，节目单变蓝 */
+.program-list:hover {
+    background: url(../images/program-list-cur.png) no-repeat;
+}
+
+.program-list:hover a {
+    color: #FFFFFF;
+}
+
+.program-list a {
+    display: inline-block;
+    width: 65px;
+    padding-left: 24px;
+    color: #0084FF;
+    text-decoration: none;
+}
+
+/* 点击刷新 */
+.refresh-wrapper {
+    height: 20px;
+    margin-top: 13px;
+    float: right;
+    font-size: 14px;
+    cursor: pointer;
+}
+
+.refresh-wrapper:hover>span {
+    border-radius: 12px;
+    color: #fff;
+    background-color: #0084ff;
+}
+
+/* 刷新图标 */
+i.refresh {
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    vertical-align: top;
+    background: url(../images/refresh-Min.png) no-repeat center center;
+}
+
+i.refresh.hopt {
+    animation: play 0.4s 1;
+}
+
+/* 刷新图标旋转动画 */
+@keyframes play {
+    0% {
+        transform: rotate(0deg);
+    }
+
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+.refresh-wrapper>span {
+    display: inline-block;
+    width: 70px;
+    height: 18px;
+    margin-left: 0px;
+    border-radius: 10px;
+    border: 1px solid #0084ff;
+    line-height: 18px;
+    text-align: center;
+    color: #0084FF;
+}
+
+/* 直播节目内容区 */
+.stream-content {
+    padding: 0px 28px;
+    border-top: 2px solid #e5e5e5;
+    /* 使 左右按钮 相对其定位 */
+    position: relative;
+}
+
+/* 向左倒退按钮 */
+.stream-pro {
+    width: 40px;
+    height: 168px;
+    position: absolute;
+    left: 0;
+    top: 0px;
+    z-index: 9;
+    background: #FFFFFF;
+}
+
+.pro-btn {
+    width: 27px;
+    height: 130px;
+    position: absolute;
+    left: 0;
+    top: 19px;
+    background: url(../images/stream-pro-Min.png) no-repeat center center;
+    cursor: pointer;
+}
+
+/* 鼠标移入，按钮背景变蓝 */
+.pro-btn:hover {
+    background: #0084FF url(../images/stream-pro-cur-Min.png) no-repeat center center;
+}
+
+/* 鼠标移入，箭头变白 */
+.stream-pro .grey-left:hover {
+    background: #e5e5e5 url(../images/stream-pro-cur-Min.png) no-repeat center center;
+}
+
+/* 向右快进按钮 */
+.stream-next {
+    width: 40px;
+    height: 168px;
+    position: absolute;
+    right: 0;
+    top: 0px;
+    z-index: 9;
+    background: #FFFFFF;
+}
+
+.next-btn {
+    width: 27px;
+    height: 130px;
+    position: absolute;
+    right: 0;
+    top: 19px;
+    cursor: pointer;
+    background: url(../images/stream-next-Min.png) no-repeat center center;
+}
+
+/* 鼠标移入，按钮背景变蓝 */
+.next-btn:hover {
+    background: #0084FF url(../images/stream-next-cur-Min.png) no-repeat center center;
+}
+
+/* 鼠标移入，箭头变白 */
+.stream-next .grey-right:hover {
+    background: #e5e5e5 url(../images/stream-next-cur-Min.png) no-repeat center center;
+}
+
+/* 直播节目内容容器 */
+.stream-con {
+    overflow: hidden;
+    /* 使 直播节目列表 相对其测量左边距 */
+    position: relative;
+}
+
+/* 直播节目列表 */
+.stream-con>ul {
+    width: 99999px;
+}
+
+.stream-con li {
+    padding: 28px 0px 26px 0;
+    float: left;
+    /* 使 下划线 相对其定位 */
+    position: relative;
+}
+
+.stream-con .li-con {
+    width: 186px;
+    height: 104px;
+    padding: 8px 20px 0px 20px;
+    border-right: 1px solid #e7e7e7;
+}
+
+.stream-con .li-con>a {
+    display: block;
+    width: 100%;
+    line-height: 21px;
+    text-decoration: none;
+}
+
+.stream-con .li-con img {
+    display: inline-block;
+    width: 84px;
+    height: 21px;
+    vertical-align: top;
+}
+
+.stream-con .li-con i {
+    margin-left: 5.8px;
+    font-size: 18px;
+    color: #000000;
+    line-height: 21px;
+    font-weight: bold;
+}
+
+.stream-con .time {
+    margin: 5px auto 10px 0px;
+    font-size: 14px;
+    line-height: 24px;
+    color: #222222;
+}
+
+.stream-con .time a {
+    color: #222222;
+    text-decoration: none;
+}
+
+.stream-con .brief {
+    height: 42px;
+    font-size: 14px;
+    line-height: 24px;
+    color: #222222;
+}
+
+.stream-con li:hover .brief a {
+    color: #0084FF;
+}
+
+.stream-con .brief a {
+    display: block;
+    width: 100%;
+    height: 100%;
+    color: #222222;
+    line-height: 24px;
+    text-decoration: none;
+}
+
+/* 下划线 */
+.li-line {
+    display: none;
+    width: 186px;
+    height: 2px;
+    position: absolute;
+    bottom: 0;
+    left: 20px;
+    background: #0084ff;
+}
+
+/* 鼠标移入，下划线出现 */
+.stream-con li:hover .li-line {
+    display: inline-block;
+}
+
+/* 下边界线 */
+.bottom-line {
+    width: 100%;
+    height: 13px;
+    position: absolute;
+    left: 0;
+    bottom: -13px;
+    background: url(../images/stream-bottom-Min.png) no-repeat center center;
+}
+
+/* 本周CCTV容器 */
+.this-week-wrapper {
+    padding-bottom: 35px;
+}
+
+/* 本周CCTV头部 */
+.this-week-header {
+    height: 106px;
+    width: 100%;
+    background: url(../images/line.jpg) repeat-x 0 79px;
+}
+
+.this-week-header>ul {
+    width: 1000px;
+}
+
+.this-week-header>ul>li {
+    width: 178px;
+    margin-right: 18px;
+    padding-top: 24px;
+    padding-bottom: 20px;
+    float: left;
+    text-align: center;
+}
+
+/* 栏目名 */
+.this-week-header h3 {
+    font-size: 14px;
+    line-height: 22px;
+    font-weight: bold;
+    color: #222222;
+}
+
+/* 节目名 */
+.this-week-header span {
+    display: block;
+    padding-bottom: 18px;
+    font-size: 14px;
+    line-height: 22px;
+    color: #999999;
+    background: url(../images/ball-Min.png) no-repeat bottom center;
+}
+
+/* 节目列表 */
+ul.this-week-body {
+    width: 1000px;
+}
+
+ul.this-week-body>li {
+    width: 178px;
+    margin-right: 18px;
+    float: left;
+    position: relative;
+}
+
+.this-week-program,
+.television-program {
+    display: block;
+    width: 100%;
+    height: 223px;
+    border-radius: 5px;
+    overflow: hidden;
+    position: relative;
+}
+
+.this-week-program>img,
+.television-program>img {
+    display: block;
+    width: 100%;
+    height: 100%;
+}
+
+/* 小标题 */
+ul.this-week-body h5 {
+    margin-top: 8px;
+    font-size: 14px;
+    line-height: 26px;
+    color: #222222;
+}
+
+ul.this-week-body a,
+.float-text a {
+    text-decoration: none;
+    color: #222222;
+    font-weight: bold;
+}
+
+ul.this-week-body p.brief {
+    font-size: 14px;
+    line-height: 24px;
+    color: #999999;
+}
+
+/* 浮窗 */
+.floating-window {
+    display: none;
+    width: 218px;
+    height: 307px;
+    border-radius: 5px;
+    box-shadow: 0px 0px 8px rgb(51 51 51 / 45%);
+    overflow: hidden;
+    position: absolute;
+    left: -20px;
+    top: -10px;
+    z-index: 333;
+    background-color: #fff;
+}
+
+ul.this-week-body>li:hover .floating-window,
+.commom:hover .floating-window {
+    display: block;
+}
+
+.floating-window>a {
+    display: block;
+    width: 218px;
+    height: 123px;
+}
+
+.floating-window a:hover,
+.float-text .label>a:hover {
+    color: #0084FF;
+}
+
+.floating-window img {
+    width: 100%;
+    height: 100%;
+}
+
+.float-text {
+    padding: 0 15px;
+}
+
+.float-text h3 {
+    height: 42px;
+    padding-top: 7px;
+    line-height: 42px;
+    font-weight: bold;
+    font-size: 14px;
+    color: #222222;
+}
+
+.float-text span {
+    display: block;
+    height: 80px;
+    padding-bottom: 12px;
+    border-bottom: 1px solid #e8e8e8;
+    font-size: 14px;
+    line-height: 20px;
+    color: #999999;
+}
+
+.float-text span a {
+    color: #666666;
+    font-weight: normal;
+}
+
+.float-text .label {
+    height: 43px;
+    line-height: 43px;
+    font-size: 0px;
+}
+
+.float-text .label>a {
+    display: inline-block;
+    padding-right: 10px;
+    font-weight: normal;
+    font-size: 14px;
+    color: #666666;
+}
+
+/* 种类分区 */
+.zone-wrapper {
+    height: 240px;
+    padding: 38px 0;
+    background: url(../images/zone-bg-Min.png) no-repeat center center;
+}
+
+.zone-wrapper>ul {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    width: 960px;
+    margin: 0 auto;
+    padding: 0 1px;
+}
+
+.zone-wrapper>ul>li {
+    width: 76px;
+    height: 76px;
+    margin: 2px;
+    border-radius: 3px;
+    overflow: hidden;
+    font-size: 16px;
+    line-height: 78px;
+    color: #009dff;
+    font-weight: bold;
+    text-align: center;
+    background: url(../images/zone-box.png) no-repeat center center;
+}
+
+.zone-wrapper>ul>li>img {
+    width: 100%;
+    height: 100%;
+}
+
+/* 长方形区域 */
+.zone-wrapper>ul>li.rectangle {
+    width: 156px;
+    cursor: pointer;
+    background: url(../images/rectangle.png) no-repeat center center;
+}
+
+/* 鼠标移入，背景加深 */
+.zone-wrapper li.rectangle:hover {
+    background: url(../images/rectangle-cur.png) no-repeat center center;
+}
+
+/* 正方形白色区域 */
+.zone-wrapper>ul>li.square {
+    /* 使 听音二维码 相对其定位 */
+    position: relative;
+    background: url(../images/square.png) no-repeat center center;
+    cursor: pointer;
+}
+
+.zone-wrapper>ul>li.square:not(.listen-code):hover {
+    background: url(../images/square-cur.png) no-repeat center center;
+}
+
+li.listen-code:hover .listen-qrcode {
+    display: block;
+}
+
+.zone-wrapper li.rectangle>img {
+    width: 156px;
+    height: 76px;
+}
+
+.square>span {
+    display: block;
+    width: 48px;
+    height: 21px;
+    margin: 0 auto;
+    position: relative;
+    bottom: 10px;
+}
+
+/* 听音二维码 */
+.listen-qrcode {
+    display: none;
+    width: 54px;
+    height: 54px;
+    padding: 11px;
+    position: absolute;
+    top: 0;
+    right: 0;
+}
+
+.listen-qrcode>img {
+    width: 54px;
+    height: 54px;
+}
+
+/* 片库外层容器 */
+.television-wrapper {
+    width: 962px;
+    padding: 0 30px;
+    padding-bottom: 40px;
+    margin-left: -30px;
+    /* 隐藏横向滚动条 */
+    overflow: hidden;
+    position: relative;
+}
+
+/* 种类菜单栏 */
+.type-menu {
+    padding-top: 6px;
+    float: right;
+}
+
+.type-menu>a {
+    width: 96px;
+    height: 30px;
+    margin-left: 10px;
+    float: left;
+    text-align: center;
+    font-size: 18px;
+    line-height: 30px;
+    color: #222222;
+    text-decoration: none;
+}
+
+.type-menu>a.cur-type {
+    border-radius: 15px;
+    box-shadow: 0px 0px 10px rgb(51 51 51 / 15%);
+    color: #0084FF;
+    font-weight: bold;
+}
+
+/* 片库内容区 */
+.television-content {
+    width: 962px;
+    height: 307px;
+    /* 使 类别分区 相对其定位 */
+    position: relative;
+}
+
+/* 类别分区 */
+.cont {
+    display: none;
+    width: 962px;
+    position: absolute;
+    left: 1222px;
+    top: 0px;
+    transition: all .1s linear;
+}
+
+.cont>ul {
+    width: 980px;
+}
+
+.cont>ul>li {
+    width: 178px;
+    margin-right: 18px;
+    float: left;
+    /* 使 浮窗 相对其定位 */
+    position: relative;
+}
+
+/* 剧名 */
+.television-text {
+    width: 100%;
+    height: 44px;
+    line-height: 44px;
+    font-size: 14px;
+    font-weight: bold;
+}
+
+.television-text>a {
+    text-decoration: none;
+    color: #333333;
+}
+
+/* 类别标签 */
+.type-label {
+    width: 150px;
+    height: 36px;
+    margin: 4px auto 0;
+    line-height: 36px;
+    font-size: 14px;
+    text-align: center;
+    color: #999999;
+    background: url(../images/type-label-Min.png) no-repeat center center;
+}
+
+.type-label:hover {
+    border-radius: 5px;
+    box-shadow: 0px 0px 10px rgb(51 51 51 / 15%);
+}
+
+.type-label>a {
+    display: inline-block;
+    width: 100%;
+    height: 100%;
+    color: #999999;
+    text-decoration: none;
+}
+
+.type-label>a:hover {
+    color: #0084FF;
+}
+
+/* 看点头部容器 */
+.attention-header {
+    display: flex;
+    padding-bottom: 10px;
+}
+
+/* 大标题 */
+.attention-header>h1 {
+    padding-bottom: 0;
+}
+
+/* 看点顶部导航条 */
+.attention-nav {
+    height: 30px;
+    margin-left: 25px;
+    margin-top: 8px;
+}
+
+.attention-nav a {
+    display: inline-block;
+    padding: 0px 10px;
+    margin: 0 5px;
+    font-size: 14px;
+    line-height: 30px;
+    text-decoration: none;
+    color: #222222;
+}
+
+.attention-nav a:hover {
+    border-radius: 15px;
+    box-shadow: 0 0 8px rgb(51 51 51 / 15%);
+    color: #0084FF;
+    background-color: #fff;
+}
+
+.attention-body {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+/* 图片列表 */
+ul.attention-img-wrapper {
+    width: 588px;
+}
+
+ul.attention-img-wrapper>li {
+    width: 178px;
+    margin-bottom: 17px;
+    margin-right: 18px;
+    float: left;
+}
+
+ul.attention-img-wrapper>li>a {
+    display: block;
+    width: 178px;
+    height: 101px;
+    border-radius: 5px;
+    overflow: hidden;
+}
+
+ul.attention-img-wrapper>li>a:hover img {
+    transform: scale(1.05);
+}
+
+ul.attention-img-wrapper img {
+    width: 100%;
+    height: 100%;
+    transition: all 1s;
+}
+
+.attention-text>h3 {
+    height: 40px;
+    margin-top: 6px;
+    font-size: 14px;
+    line-height: 20px;
+}
+
+.attention-text>h3 a {
+    color: #222222;
+    text-decoration: none;
+}
+
+.attention-text>p.brief {
+    font-size: 14px;
+    line-height: 44px;
+}
+
+.attention-text>p.brief>a {
+    color: #999999;
+    text-decoration: none;
+}
+
+.attention-text a:hover,
+.attention-text>p.brief>a:hover {
+    color: #0084FF;
+}
+
+/* 收视Top榜 */
+.audience-wrapper {
+    width: 374px;
+    /* 使 收视背景 相对其定位 */
+    position: relative;
+}
+
+/* 收视背景 */
+.audience-bg {
+    width: 100px;
+    height: 48px;
+    position: absolute;
+    top: 0px;
+    right: 20px;
+    background: url(../images/audience-bg-Min.png) no-repeat 0 0;
+}
+
+/* 收视头部 */
+.audience-top {
+    margin-bottom: 16px;
+    position: relative;
+    top: -2px;
+    font-size: 24px;
+    font-weight: bold;
+    line-height: 28px;
+    color: #222222;
+}
+
+/* 听音标题 */
+.audience-top>a {
+    text-decoration: none;
+    color: #222222;
+}
+
+.audience-top>a:hover {
+    color: #0084FF;
+}
+
+/* 收视 && 听音 内容区 */
+.audience-content {
+    width: 374px;
+    height: 547px;
+    box-shadow: 0 0 8px rgb(51 51 51 / 15%);
+    border-radius: 5px;
+    position: relative;
+    z-index: 9;
+    background: #FFFFFF url(../images/audience-con-Min.png) no-repeat 0 0;
+}
+
+.audience-content>ul {
+    padding: 18px 30px 0 30px;
+}
+
+.audience-content>ul>li {
+    width: 100%;
+    height: 44px;
+}
+
+.audience-content>ul>li:last-child {
+    border-bottom: 1px solid #e7e7e7;
+    padding-bottom: 17px;
+}
+
+.audience-content i {
+    display: inline-block;
+    width: 20px;
+    height: 44px;
+    margin-right: 18px;
+    line-height: 44px;
+    text-align: center;
+    font-family: "Impact";
+    font-style: oblique;
+    vertical-align: middle;
+    font-size: 25px;
+    color: #e0e0e0;
+    cursor: default;
+}
+
+.audience-content>ul a {
+    display: inline-block;
+    font-size: 16px;
+    line-height: 44px;
+    vertical-align: middle;
+    text-decoration: none;
+    color: #222222;
+}
+
+.audience-content a:hover {
+    color: #0084FF;
+}
+
+/* 全部榜单 */
+.audience-all {
+    width: 100%;
+    text-align: center;
+    font-size: 16px;
+    line-height: 58px;
+}
+
+.audience-all a {
+    display: inline-block;
+    padding-right: 17px;
+    color: #222222;
+    text-decoration: none;
+    background: url(../images/arrow-right.png) no-repeat right center;
+}
+
+.audience-all a:hover {
+    color: #0084FF;
+    background-image: url(../images/arrow-right-cur.png);
+}
+
+/* 人物介绍容器 */
+.people-wrapper {
+    padding-top: 7px;
+    padding-bottom: 40px;
+}
+
+.people-wrapper>ul {
+    width: 1000px;
+}
+
+.people-wrapper>ul>li {
+    width: 318px;
+    height: 113px;
+    margin-right: 4px;
+    box-shadow: 0 0 8px rgb(51 51 51 / 15%);
+    border-radius: 5px;
+    float: left;
+    cursor: pointer;
+    background: #FFFFFF url(../images/people-bg-1.png) no-repeat 0 center;
+}
+
+.people-wrapper>ul>li:nth-child(2n) {
+    background-image: url(../images/people-bg-2.png);
+}
+
+/* 人物图片容器 */
+.people-img {
+    width: 118px;
+    height: 100%;
+    float: left;
+    /* 使 图片 相对其定位 */
+    position: relative;
+    overflow: hidden;
+}
+
+/* 鼠标移入，人物图片上移 */
+.people-wrapper>ul>li:hover img {
+    top: 0;
+}
+
+.people-img img {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 20px;
+    z-index: 1;
+    transition: top .2s ease-in-out;
+}
+
+/* 人物介绍 */
+.people-intro {
+    padding: 30px 20px 35px 0;
+    float: left;
+}
+
+.people-wrapper>ul>li:hover .name {
+    color: #0084FF;
+}
+
+.name {
+    margin-bottom: 10px;
+    font-size: 16px;
+    line-height: 20px;
+    color: #222222;
+}
+
+.people-intro p {
+    font-size: 14px;
+    line-height: 18px;
+    color: #999999;
+}
+
+/* 听音内容区 */
+ul.listen-content {
+    width: 100%;
+    position: relative;
+    z-index: 10;
+    background-color: #FFFFFF;
+}
+
+ul.listen-content>li {
+    width: 100%;
+    height: 95px;
+    margin-bottom: 18px;
+    border-radius: 5px;
+    box-shadow: 0 0 8px rgb(51 51 51 / 15%);
+    overflow: hidden;
+}
+
+.listen-img {
+    width: 95px;
+    height: 100%;
+    margin-right: 20px;
+    border-radius: 5px;
+    float: left;
+}
+
+.listen-img:hover {
+    padding: 8px 7px 7px 8px;
+    box-sizing: border-box;
+}
+
+/* 默认图片 */
+.listen-img .img-lazy {
+    display: block;
+    width: 100%;
+    height: 100%;
+    border-top-right-radius: 5px;
+    border-bottom-right-radius: 5px;
+}
+
+/* 二维码图片 */
+.listen-img .img-hover {
+    display: none;
+    width: 80px;
+    height: 80px;
+}
+
+.listen-img:hover .img-hover {
+    display: block;
+    transform: scale(1.05);
+    transition: all 1s;
+}
+
+.listen-img:hover .img-lazy {
+    display: none;
+}
+
+.listen-text {
+    padding: 15px 20px 19px 0px;
+    float: left;
+}
+
+.listen-text h5 {
+    font-size: 16px;
+    line-height: 36px;
+}
+
+.listen-text a {
+    color: #222222;
+    text-decoration: none;
+}
+
+.listen-text a:hover {
+    color: #0084FF;
+}
+
+.listen-text p {
+    font-size: 14px;
+    line-height: 26px;
+    color: #999999;
+}
+
+/* 央视网选 */
+.shop-wrapper {
+    padding-top: 7px;
+    padding-bottom: 40px;
+}
+
+.shop-wrapper a {
+    display: inline-block;
+    width: 100%;
+    height: 100%;
+}
+
+.shop-wrapper img {
+    display: none;
+    width: 100%;
+    height: 100%;
+    border-radius: 5px;
+}
+
+.shop-wrapper img.shop-bg-Min {
+    display: block;
+}
+
+/* 年代剧推荐 */
+.time-play-content>ul {
+    padding: 35px 31px 0 30px;
+}
+
+.time-play-content>ul>li {
+    width: 100%;
+    height: 82px;
+}
+
+.time-play-content>ul p {
+    height: 100%;
+    padding-left: 0;
+    line-height: 82px;
+}
+
+.time-play-content>ul a {
+    line-height: 18px;
+}
+
+.time-play-content>ul>li:last-child {
+    padding-bottom: 41px;
+}
+
+/* 节目品牌容器 */
+.brand-wrapper {
+    width: 980px;
+    margin: 0 auto;
+    padding-top: 7px;
+    padding-bottom: 40px;
+    overflow: hidden;
+}
+
+.brand-wrapper img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    border-radius: 4px;
+}
+
+.brand-inner {
+    width: 100%;
+    white-space: nowrap;
+    font-size: 0;
+    transition: all 0.6s ease-in-out;
+}
+
+.brand-item {
+    display: inline-block;
+    width: 178px;
+    height: 101px;
+    padding: 0 9px;
+    position: relative;
+    /* 隐藏长图片 */
+    overflow: hidden;
+    transition: all .7s cubic-bezier(.46, .7, .54, 1.1);
+}
+
+.brand-item-inner {
+    width: 2000px;
+    height: 100%;
+    position: absolute;
+    left: 0;
+    top: 0;
+}
+
+.brand-mini {
+    width: 178px;
+    height: 100%;
+    padding: 0 9px;
+    float: left; 
+}
+
+.brand-big {
+    width: 570px;
+    height: 100%;
+    padding: 0 9px;
+    float: left;
+}
+
+/* 央视大全容器 */
+.program-wrapper {
+    width: 100%;
+    padding-bottom: 40px;
+    background-color: #fff;
+}
+
+.program-header {
+    width: 100%;
+    height: 54px;
+}
+
+.program-header>.program-logo {
+    width: 279px;
+    height: 34px;
+    margin: 0 auto;
+}
+
+.program-header img {
+    display: block;
+    width: 100%;
+    height: 100%;
+}
+
+ul.program-body {
+    height: 142px;
+}
+
+ul.program-body>li {
+    width: 104.89px;
+    height: 70.5px;
+    border: 1px solid #ebebeb;
+    float: left;
+    position: relative;
+    text-align: center;
+    cursor: pointer;
+}
+
+ul.program-body>li:hover a {
+    color: #bf0614;
+}
+
+ul.program-body a {
+    position: relative;
+    top: 14px;
+    font-size: 16px;
+    line-height: 20px;
+    color: #535353;
+    font-weight: bold;
+    text-decoration: none;
+}
+
+ul.program-body>li.cur span {
+    display: block;
+    width: 100%;
+    height: 4px;
+    position: absolute;
+    bottom: -1px;
+    left: 0;
+    background-color: #bf0614;
+}
+
+.program-footer {
+    width: 960px;
+    min-height: 168px;
+    border-left: 1px solid #ebebeb;
+    border-right: 1px solid #ebebeb;
+    border-bottom: 1px solid #ebebeb;
+}
+
+.program-footer>.list-box {
+    display: none;
+}
+
+.play-box {
+    width: 150px;
+    min-height: 130px;
+    padding: 20px 10px 20px 28px;
+    border-right: 1px solid #ebebeb;
+    float: left;
+}
+
+.play-inner>a {
+    display: block;
+    width: 89px;
+    height: 21px;
+}
+
+.play-inner>a>img {
+    display: block;
+    width: 100%;
+    height: 100%;
+}
+
+.play-text p {
+    margin-bottom: 5px;
+    margin-top: 17px;
+    font-weight: bold;
+    color: #bf0614;
+    font-size: 16px;
+    line-height: 20px;
+}
+
+.play-text a {
+    text-decoration: none;
+    color: #333;
+    font-size: 13px;
+    line-height: 20px;
+}
+
+.prom-list {
+    width: 770px;
+    padding: 12px 0 12px 20px;
+    box-sizing: border-box;
+    float: right;
+}
+
+.prom-list>ul>li {
+    width: 130px;
+    height: 28px;
+    float: left;
+    font-size: 13px;
+    color: #333;
+    line-height: 28px;
+}
+
+/* 体育赛事栏目内容 */
+.program-footer>.list-box:nth-child(6) .prom-list li {
+    width: 250px;
+}
+
+/* 电影 && 电视剧 栏目内容 */
+.program-footer>.list-box:nth-child(7) .prom-list li,
+.program-footer>.list-box:nth-child(9) .prom-list li {
+    width: 375px;
+}
+
+
+.prom-list>ul a {
+    width: 115px;
+    color: #333;
+    text-decoration: none;
+}
+
+.prom-list>ul a:hover {
+    color: #bf0614;
+}
+
+/* 底部 */
+footer {
+    width: 100%;
+    height: 261px;
+    margin: 0 auto;
+}
+
+.footer-inner {
+    height: 150px;
+    padding-top: 18px;
+    border-bottom: 1px solid #484848;
+    background: #333;
+}
+
+.footer-info {
+    width: 228px;
+    border-right: 1px solid #272727;
+    float: left;
+}
+
+.fix-column>.footer-info:nth-child(2) {
+    width: 240px;
+    padding-left: 20px;
+}
+
+/* 更多链接 */
+.fix-column>.footer-info:nth-child(3) {
+    width: 178px;
+    padding-left: 19px;
+}
+
+
+.footer-info h1 {
+    height: 20.667px;
+    padding-bottom: 21px;
+    padding-top: 2px;
+    position: relative;
+    top: 1.5px;
+    line-height: 20px;
+    font-size: 16px;
+    font-weight: bold;
+    color: #c10714;
+}
+
+.footer-info>ul>li {
+    width: 114px;
+    padding-bottom: 20px;
+    float: left;
+    line-height: 12px;
+}
+
+.fix-column>.footer-info:nth-child(2)>ul>li {
+    width: 120px;
+}
+
+.fix-column>.footer-info:nth-child(3)>ul>li {
+    min-width: 89px;
+    max-width: 178px;
+    width: auto !important;
+}
+
+.footer-info a {
+    color: #fefefe;
+    font-size: 12px;
+    text-decoration: none;
+}
+
+.footer-info a:hover {
+    color: #c10714;
+}
+
+/* AIGC */
+.aigc {
+    width: 254px;
+    float: right;
+}
+
+.aigc-logo {
+    height: 29px;
+    padding-bottom: 21px;
+    text-align: center;
+}
+
+.aigc-logo>img {
+    display: inline-block;
+    height: 100%;
+    width: auto;
+}
+
+.aigc>ul>li {
+    float: left;
+    width: 100px;
+    padding-bottom: 10px;
+}
+
+.aigc>ul>li.short-item {
+    width: 48px;
+}
+
+.aigc>ul a {
+    text-decoration: none;
+    color: #fefefe;
+    font-size: 12px;
+}
+
+.aigc>ul a:hover {
+    color: #c10714;
+}
+
+.ask {
+    display: block;
+    width: 100%;
+    height: 24px;
+    margin-top: 5px;
+    border-radius: 5px;
+    line-height: 24px;
+    font-size: 12px;
+    text-align: center;
+    color: #8F8F8F;
+    background-color: #272727;
+    text-decoration: none;
+}
+
+.ask:hover {
+    color: #c10714;
+}
+
+/* 版权信息容器 */
+.copyright-wrapper {
+    height: 92px;
+    font-size: 12px;
+    color: #cacaca;
+    background-color: #272727;
+}
+
+/* 版权信息 */
+.copyright-link {
+    padding-top: 17px;
+    float: left;
+}
+
+.copyright-link>p {
+    line-height: 32px;
+}
+
+.copyright-link a {
+    text-decoration: none;
+    color: #cacaca;
+}
+
+.copyright-link a:hover {
+    color: #c10714;
+    text-decoration: underline;
+}
+
+.copyright-link a>img {
+    display: inline-block;
+    height: 20px;
+    margin: 0 4.5px 0 5px;
+    vertical-align: middle;
+}
+
+.copyright-info {
+    float: right;
+}
+
+.police-wrapper {
+    display: flex;
+    justify-content: space-between;
+    width: 115.833px;
+    height: 34px;
+    padding: 21px 15px 10px 95px;
+}
+
+.police-wrapper>img {
+    height: 25px;
+}
+
+.police-wrapper>span {
+    display: inline-block;
+    margin-left: 16px;
+    position: relative;
+    left: -9.5px;
+    top: 0px;
+    line-height: 16.5px;
+    text-align: right;
+}
+
+.copyright-info p {
+    text-align: right;
+}
+
+@media (min-width: 1350px) and (max-width: 1683px) {
+
+    /* 顶部导航栏样式 */
+    .header-inner,
+    ul.current-list,
+    .header-popup {
+        width: 1200px;
+    }
+
+    .nav>li {
+        margin-right: 30px;
+    }
+
+    .nav a {
+        font-size: 14px;
+    }
+
+    .nav li.nav-item {
+        padding-right: 25px;
+        margin-right: 25px;
+    }
+
+    /* 时政图标 */
+    i.group {
+        margin: 19px 0 0 10px;
+    }
+
+    /* 导航条主体部分 */
+    .second-inner {
+        width: 1200px;
+    }
+
+    .second-inner .banner-search {
+        margin-right: 20px;
+        margin-left: 22px;
+    }
+
+    /* 轮播图搜索框 */
+    .banner-search {
+        left: 385px;
+    }
+
+    /* 用户栏 */
+    .headpic {
+        display: block;
+    }
+
+    /* 关闭按钮 */
+    .close {
+        margin-right: -600px;
+    }
+
+    /* 分类内容区 */
+    .classify-con {
+        width: 1200px;
+    }
+
+    ul.channel-box {
+        width: 1200px;
+        margin-left: -600px;
+    }
+
+    ul.channel-box>li {
+        margin: 0 72px 20px 0;
+    }
+
+    /* 轮播图右侧菜单栏 */
+    .floatText {
+        width: 200px;
+        height: 356px;
+        padding: 20px 27px 21px 27px;
+        right: -1px;
+    }
+
+    /* 正在热播 */
+    .live-on {
+        padding-left: 28px;
+        font-size: 20px;
+        line-height: 60px;
+        background: url(../images/icon-hot-Mid.png) no-repeat left center;
+    }
+
+    .live-on.cur {
+        color: #0084FF;
+        background: url(../images/icon-hot-cur-Mid.png) no-repeat left center;
+    }
+
+    /* 精彩推荐 */
+    .live-introduce {
+        margin-top: 3px;
+        padding-left: 28px;
+        font-size: 20px;
+        line-height: 54px;
+        background: url(../images/icon-intro-Mid.png) no-repeat left center;
+    }
+
+    .live-introduce.cur {
+        color: #0084FF;
+        background: url(../images/icon-intro-cur-Mid.png) no-repeat left center;
+    }
+
+    li.bullet {
+        height: 40px;
+        line-height: 40px;
+        font-size: 14px;
+    }
+
+    /* 正在热播剧集 */
+    .slider {
+        width: 946px;
+        margin-left: -600px;
+        top: 97px;
+    }
+
+    .slider>a.button {
+        width: 26px;
+        height: 52px;
+        top: 91px;
+    }
+
+    /* 向左倒退按钮 */
+    .pro {
+        background: url(../images/pro-Mid.png);
+    }
+
+    .pro:hover {
+        background: url(../images/pro-cur-Mid.png);
+    }
+
+    /* 向右快进按钮 */
+    .next {
+        background: url(../images/next-Mid.png);
+    }
+
+    .next:hover {
+        background: url(../images/next-cur-Mid.png);
+    }
+
+    .con {
+        width: 808px;
+        padding-right: 138px;
+    }
+
+    .con>ul>li {
+        width: 187px;
+    }
+
+    .con a {
+        width: 187px;
+        height: 234px;
+    }
+
+    /* 小标题 */
+    .con h5 {
+        height: 40px;
+        padding-top: 6px;
+        font-size: 16px;
+        line-height: 20px;
+    }
+
+    .fix-column {
+        width: 1200px;
+    }
+
+    .navigation-wrapper {
+        height: 138px;
+        padding-bottom: 11px;
+    }
+
+    ul.navigation-left {
+        width: 748px;
+        padding: 32px 0 0 0px;
+    }
+
+    ul.navigation-left .navt {
+        padding: 0px 18px;
+        margin-bottom: 20px;
+    }
+
+    ul.navigation-left i {
+        display: block;
+        width: 22px;
+        height: 22px;
+        margin-top: 4px;
+        margin-right: 12px;
+        float: left;
+    }
+
+    .navt-popup {
+        left: 11px;
+    }
+
+    .navigation-left .arrow {
+        left: 40px;
+    }
+
+    .pd-con {
+        left: -185px;
+    }
+
+    .ty-con {
+        left: 0;
+    }
+
+    .navt-line {
+        width: 1px;
+        height: 75px;
+        margin-top: 37px;
+    }
+
+    ul.navigation-right {
+        width: 300px;
+        padding: 32px 10px 0 30px;
+    }
+
+    ul.navigation-right li {
+        width: 100px;
+    }
+
+    .navt-right {
+        height: 35px;
+        margin-bottom: 19px;
+        line-height: 35px;
+    }
+
+    .navt-line-right {
+        display: block;
+        height: 75px;
+        margin-top: 37px;
+    }
+
+    .more-con {
+        right: 37px;
+    }
+
+    .phone-wrapper {
+        display: block;
+        width: 110px;
+    }
+
+    .phone-box {
+        width: 55px;
+        margin-top: 39px;
+        margin-left: 30px;
+        float: left;
+    }
+
+    .phone-box i {
+        display: inline-block;
+        width: 35px;
+        height: 41px;
+        margin-left: 10px;
+        margin-bottom: 14px;
+        background: url(../images/phone-Min.png) no-repeat;
+    }
+
+    .phone-box a {
+        font-size: 16px;
+        line-height: 21px;
+    }
+
+    /* 二维码 */
+    .qr-code {
+        margin-top: 37px;
+        margin-left: 18px;
+    }
+
+    .title {
+        font-size: 28px;
+        line-height: 48px;
+    }
+
+    /* 顶部导航栏 栏目大全弹出层 */
+    .column-header a {
+        padding: 0 16px;
+    }
+
+    .column-body {
+        width: 1200px;
+    }
+
+    .column-body>li {
+        width: 200px;
+    }
+
+    /* 看点弹出层 */
+    .highlight-pop {
+        width: 260px;
+        margin: 0 -130px;
+        border-radius: 0 0 5px 5px;
+        left: 50%;
+        top: 60px;
+    }
+
+    .highlight-pop ul {
+        padding: 28px 40px 4px 40px;
+    }
+
+    .highlight-pop ul>li {
+        width: 72px;
+        float: left;
+    }
+
+    .highlight-pop ul>li:last-child {
+        margin-left: 29px;
+    }
+
+    .highlight-pop ul span {
+        display: block;
+        width: 72px;
+        margin-bottom: 18px;
+        line-height: 18px;
+    }
+
+    .highlight-pop ul a {
+        line-height: 18px;
+        font-size: 14px;
+    }
+
+    @keyframes highlightDown {
+        from {
+            height: 0;
+        }
+
+        to {
+            height: 141px;
+        }
+    }
+
+    @keyframes highlightUp {
+        from {
+            height: 141px;
+        }
+
+        to {
+            height: 0;
+        }
+    }
+
+    .all-inner {
+        width: 1200px;
+        margin-left: -600px;
+    }
+
+    .all-inner h4 {
+        width: 115px;
+    }
+
+    .all-body>ul {
+        width: 1085px;
+    }
+
+    .all-body>ul>li {
+        margin-right: 58px;
+    }
+
+    .all-inner .all-footer h4 {
+        width: 115px;
+    }
+
+    /* 今日热门 */
+    .popular-wrapper {
+        padding-bottom: 0px;
+    }
+
+    ul.popular-today>li {
+        width: 185px;
+        margin-bottom: 21px;
+        line-height: 26px;
+    }
+
+    ul.popular-today li.first {
+        width: 388px;
+    }
+
+    .disappear-second {
+        display: block;
+    }
+
+    ul.popular-today>li>a {
+        width: 185px;
+        height: 105px;
+    }
+
+    ul.popular-today>li.first>a {
+        width: 388px;
+        height: 217px;
+    }
+
+    /* 热门描述容器 */
+    .text {
+        padding: 26px 20px 33px 20px;
+    }
+
+    /* 小标题 */
+    ul.popular-today h5 {
+        height: 52px;
+        padding-top: 8px;
+    }
+
+    /* 直播导视 */
+    /* 节目单 */
+    .program-list {
+        margin-top: 12px;
+    }
+
+    /* 点击刷新 */
+    .refresh-wrapper {
+        margin-top: 14px;
+    }
+
+    .stream-con .li-con {
+        width: 188px;
+    }
+
+    /* 下划线 */
+    .li-line {
+        width: 188px;
+    }
+
+    /* 下边界线 */
+    .bottom-line {
+        background: url(../images/stream-bottom-Mid.png) no-repeat center center;
+    }
+
+    .this-week-header>ul {
+        width: 1218px;
+    }
+
+    .this-week-header>ul>li {
+        width: 185px;
+    }
+
+    /* 节目列表 */
+    ul.this-week-body {
+        width: 1218px;
+    }
+
+    ul.this-week-body>li {
+        width: 185px;
+    }
+
+    .this-week-program {
+        height: 233px;
+    }
+
+    .television-program {
+        height: 232px;
+    }
+
+    /* 浮窗 */
+    .floating-window {
+        width: 225px;
+        height: 316px;
+    }
+
+    .floating-window>a {
+        width: 225px;
+        height: 127px;
+    }
+
+    .float-text h3 {
+        height: 44px;
+        padding-top: 6px;
+        font-size: 14px;
+        line-height: 44px;
+    }
+
+    .float-text span {
+        padding-bottom: 14px;
+    }
+
+    /* 种类分区 */
+    .zone-wrapper {
+        height: 302px;
+        padding: 46px 0;
+        background: url(../images/zone-bg-Mid.png) no-repeat center center;
+    }
+
+    .zone-wrapper>ul {
+        width: 1200px;
+        padding: 0;
+    }
+
+    .zone-wrapper>ul>li {
+        width: 94px;
+        height: 94px;
+        margin: 3px;
+        font-size: 18px;
+        line-height: 96px;
+    }
+
+    /* 长方形区域 */
+    .zone-wrapper>ul>li.rectangle {
+        width: 194px;
+    }
+
+    .zone-wrapper li.rectangle>img {
+        width: 194px;
+        height: 94px;
+    }
+
+    .square>span {
+        height: 22px;
+        bottom: 12px;
+    }
+
+    /* 听音二维码 */
+    .listen-qrcode {
+        width: 74px;
+        height: 74px;
+        padding: 10px;
+    }
+
+    .listen-qrcode>img {
+        width: 74px;
+        height: 74px;
+    }
+
+    /* 片库外层容器 */
+    .television-wrapper {
+        width: 1200px;
+        padding: 0 30px;
+        padding-bottom: 40px;
+        margin-left: -30px;
+    }
+
+    /* 片库内容区 */
+    .television-content {
+        width: 1200px;
+        height: 316px;
+    }
+
+    /* 类别分区 */
+    .cont {
+        width: 1200px;
+    }
+
+    .cont>ul {
+        width: 1218px;
+    }
+
+    .cont>ul>li {
+        width: 185px;
+    }
+
+    /* 看点顶部导航条 */
+    .attention-nav {
+        margin-left: 21px;
+        margin-top: 9px;
+    }
+
+    /* 图片列表 */
+    ul.attention-img-wrapper {
+        width: 812px;
+    }
+
+    ul.attention-img-wrapper>li {
+        width: 185px;
+        margin-bottom: 15px;
+    }
+
+    ul.attention-img-wrapper>li>a {
+        width: 185px;
+        height: 105px;
+    }
+
+    .attention-text>h3 {
+        margin-top: 7px;
+    }
+
+    .attention-text>p.brief {
+        line-height: 42px;
+    }
+
+    .audience-wrapper {
+        width: 388px;
+    }
+
+    .audience-content {
+        height: 552px;
+        width: 388px;
+        background-image: url(../images/audience-con-Mid.png);
+    }
+
+    .audience-content>ul>li:last-child {
+        padding-bottom: 16px;
+    }
+
+    /* 全部榜单 */
+    .audience-all {
+        line-height: 64px;
+    }
+
+    /* 人物介绍容器 */
+    .people-wrapper {
+        padding-top: 9px;
+    }
+
+    .people-wrapper>ul {
+        width: 1204px;
+    }
+
+    .people-wrapper>ul>li {
+        width: 297px;
+        height: 105px;
+    }
+
+    /* 人物介绍 */
+    .people-intro {
+        padding: 31px 20px 27px 0;
+    }
+
+    ul.listen-content>li {
+        height: 96px;
+    }
+
+    .listen-img {
+        width: 96px;
+    }
+
+    /* 央视网选 */
+    .shop-wrapper {
+        padding-top: 9px;
+    }
+
+    .shop-wrapper img.shop-bg-Min {
+        display: none;
+    }
+
+    .shop-wrapper img.shop-bg-Mid {
+        display: block;
+    }
+
+    .time-play-content>ul>li:last-child {
+        padding-bottom: 41px;
+    }
+
+    .brand-wrapper {
+        width: 1218px;
+        padding-top: 9px;
+    }
+
+    .brand-item {
+        width: 186px;
+        height: 105px;
+    }
+
+    .brand-mini {
+        width: 185px;
+    }
+
+    .brand-big {
+        width: 591px;
+    }
+
+    .program-header {
+        height: 63px;
+    }
+
+    .program-header>.program-logo {
+        width: 314px;
+        height: 39px;
+    }
+
+    ul.program-body {
+        height: 139px;
+    }
+
+    ul.program-body>li {
+        width: 131.34px;
+        height: 69px;
+    }
+
+    .program-footer {
+        width: 1198px;
+        min-height: 203px;
+    }
+
+    .play-box {
+        width: 220px;
+        min-height: 166px;
+        padding: 20px 15px 16px 30px;
+    }
+
+    .play-text>p {
+        margin-bottom: 8px;
+        margin-top: 14px;
+    }
+
+    .prom-list {
+        width: 932px;
+        padding: 19px 0;
+        float: right;
+    }
+
+    .prom-list>ul>li {
+        height: 32px;
+        padding-left: 20px;
+    }
+
+    /* 体育赛事栏目内容 */
+    .program-footer>.list-box:nth-child(6) .prom-list li {
+        width: 290px;
+    }
+
+    /* 电影 && 电视剧 栏目内容 */
+    .program-footer>.list-box:nth-child(7) .prom-list li,
+    .program-footer>.list-box:nth-child(9) .prom-list li {
+        width: 446px;
+    }
+
+    /* 底部 */
+    footer {
+        height: 300px;
+    }
+
+    .footer-inner {
+        height: 171px;
+        padding-top: 28px;
+    }
+
+    .footer-info {
+        width: 284px;
+    }
+
+    /* 业务概括 */
+    .fix-column>.footer-info:nth-child(2) {
+        width: 284px;
+        padding-left: 42px;
+    }
+
+    /* 更多链接 */
+    .fix-column>.footer-info:nth-child(3) {
+        width: 219px;
+        padding-left: 32px;
+    }
+
+    .footer-info h1 {
+        height: 26.667px;
+        padding-bottom: 28px;
+        padding-top: 0;
+        line-height: 26px;
+        font-size: 20px;
+    }
+
+    .footer-info>ul>li {
+        width: 134px;
+        padding-bottom: 21px;
+        line-height: 14px;
+    }
+
+    .fix-column>.footer-info:nth-child(2)>ul>li {
+        width: 134px;
+    }
+
+    .fix-column>.footer-info:nth-child(3)>ul>li {
+        min-width: 104px;
+        max-width: 208px;
+    }
+
+    .footer-info a {
+        font-size: 14px;
+    }
+
+    /* AIGC */
+    .aigc {
+        width: 294px;
+    }
+
+    .aigc-logo {
+        height: 31px;
+        padding-bottom: 25.5px;
+    }
+
+    .aigc>ul>li {
+        width: 118px;
+        padding-bottom: 14.5px;
+    }
+
+    .aigc>ul>li.short-item {
+        width: 56px;
+    }
+
+    .aigc>ul a {
+        font-size: 14px;
+    }
+
+    .ask {
+        height: 30px;
+        margin-top: 2px;
+        line-height: 32.6px;
+        font-size: 14px;
+    }
+
+    /* 版权信息容器 */
+    .copyright-wrapper {
+        height: 100px;
+    }
+
+    .police-wrapper {
+        width: 127.344px;
+        padding: 22px 0 10.5px 66px;
+    }
+}
+
+
+@media (min-width: 1684px) and (max-width: 1899px) {
+
+    /* 顶部导航栏样式 */
+    .header-inner,
+    ul.current-list,
+    .header-popup {
+        width: 1494px;
+    }
+
+    .nav>li {
+        margin-right: 30px;
+    }
+
+    .nav a {
+        font-size: 14px;
+    }
+
+    .nav li.nav-item {
+        padding-right: 25px;
+        margin-right: 25px;
+    }
+
+    /* 时政图标 */
+    i.group {
+        margin: 19px 0 0 10px;
+    }
+
+    /* 第二个导航条 */
+    .second-header {
+        height: 79px;
+    }
+
+    /* 导航条主体部分 */
+    .second-inner {
+        width: 1494px;
+    }
+
+    nav img {
+        width: 194px;
+        height: 22px;
+        margin: 29px 33px 0 0;
+    }
+
+    ul.second-nav-list>li {
+        line-height: 79px;
+    }
+
+    ul.second-nav-list>li>a {
+        padding: 0 15px;
+        font-size: 16px;
+    }
+
+    .second-inner .banner-search {
+        margin-right: 20px;
+        margin-top: 20px;
+        margin-left: 23px;
+    }
+
+    .second-inner .inputVal {
+        width: 388px;
+        height: 38px;
+    }
+
+    /* 轮播图搜索框 */
+    .banner-search {
+        width: 470px;
+        height: 40px;
+        left: 453px;
+    }
+
+    /* 输入框 */
+    .inputVal {
+        width: 390px;
+        height: 40px;
+        padding-left: 24px;
+        border-top-left-radius: 20px;
+        border-bottom-left-radius: 20px;
+    }
+
+    .inputVal input {
+        width: 310px;
+        height: 40px;
+        font-size: 16px;
+        line-height: 40px;
+    }
+
+    /* 热榜 */
+    .banner-search-hot {
+        height: 40px;
+        padding-left: 26px;
+        font-size: 16px;
+        line-height: 40px;
+        background: url(../images/banner-search-hot.png) no-repeat left center;
+    }
+
+    /* 热搜榜 */
+    ul.search-list,
+    ul.search-result {
+        width: 374px;
+        padding: 13px 9px 10px;
+        left: 20px;
+        top: 40px;
+        font-size: 16px;
+    }
+
+    ul.search-list>span {
+        height: 30px;
+        margin-bottom: 0px;
+        line-height: 30px;
+    }
+
+    ul.search-list>li,
+    ul.search-result>li {
+        height: 32px;
+        margin-bottom: 0px;
+        line-height: 32px;
+    }
+
+    ul.search-list i {
+        margin-right: 7.5px;
+        line-height: 32px;
+    }
+
+    /* 历史记录 */
+    .history-wrapper {
+        margin-bottom: 2px;
+    }
+
+    .history-header {
+        height: 30px;
+        margin-bottom: 3px;
+        line-height: 30px;
+    }
+
+    ul.history {
+        width: 380px;
+        margin-left: -3px;
+    }
+
+    ul.history>li {
+        width: 164px;
+        padding: 0 10px;
+        margin: 0 3px;
+        margin-bottom: 6px;
+    }
+
+
+    .buttonVal {
+        width: 56px;
+        height: 40px;
+        border-top-right-radius: 20px;
+        border-bottom-right-radius: 20px;
+    }
+
+    .buttonVal input {
+        width: 56px;
+        height: 40px;
+        background: url(../images/icon-searchMax.png) no-repeat center center;
+    }
+
+    i.nav-arrow {
+        margin-left: 0.56px;
+    }
+
+    .headpic {
+        display: block;
+        width: 40px;
+        height: 40px;
+        margin-top: 20px;
+    }
+
+    .second-inner .search-list,
+    .second-inner .search-result {
+        top: 39px;
+        left: 18px;
+    }
+
+    /* 频道大全弹出层 */
+    .channel-popup {
+        top: 80px;
+    }
+
+    /* 频道大全弹出层 */
+    @keyframes channelSlideDown {
+        from {
+            height: 0;
+        }
+
+        to {
+            height: 237px;
+        }
+    }
+
+    @keyframes channelSlideUp {
+        from {
+            height: 237px;
+        }
+
+        to {
+            height: 0;
+        }
+    }
+
+    /* 栏目大全动画 */
+    @keyframes columnSlideDown {
+        from {
+            height: 0;
+        }
+
+        to {
+            height: 293px;
+        }
+    }
+
+    @keyframes columnSlideUp {
+        from {
+            height: 293px;
+        }
+
+        to {
+            height: 0;
+        }
+    }
+
+    .fix-column {
+        width: 1494px;
+    }
+
+    ul.channel-box {
+        width: 1494px;
+        height: 213px;
+        padding-top: 24px;
+        margin-left: -747px;  
+    }
+
+    ul.channel-box>li {
+        height: 47px;
+        margin: 0 72px 24px 0;
+    }
+
+    ul.channel-box img {
+        width: 102px;
+        height: 47px;
+    }
+
+    /* 栏目大全弹出层 */
+    .column-inner {
+        height: 293px;
+    }
+
+    .column-header {
+        height: 60px;
+    }
+
+    .column-header>ul>li {
+        line-height: 60px;
+    }
+
+    .column-header a {
+        padding: 0 20px;
+        font-size: 18px;
+    }
+
+    .column-body {
+        width: 1494px;
+        height: 195px;
+        padding: 38px 0 0 0;
+    }
+
+    .column-body>li {
+        width: 249px;
+    }
+
+    .list {
+        margin-bottom: 26px;
+        line-height: 20px;
+        font-size: 16px;
+    }
+
+    /* 看点弹出层 */
+    .highlight-pop {
+        width: 279px;
+        margin: 0 -139px;
+        border-radius: 0 0 5px 5px;
+        left: 50%;
+        top: 80px;
+    }
+
+    .highlight-inner {
+        height: 188px;
+    }
+
+    .highlight-pop ul {
+        padding: 38px 40px 12px 40px;
+    }
+
+    .highlight-pop ul>li {
+        width: 85px;
+    }
+
+    .highlight-pop ul>li:last-child {
+        margin-left: 29px;
+    }
+
+    .highlight-pop ul span {
+        display: block;
+        width: 85px;
+        margin-bottom: 26px;
+        line-height: 20px;
+    }
+
+    .highlight-pop ul a {
+        line-height: 20px;
+        font-size: 16px;
+    }
+
+    @keyframes highlightDown {
+        from {
+            height: 0;
+        }
+
+        to {
+            height: 188px;
+        }
+    }
+
+    @keyframes highlightUp {
+        from {
+            height: 188px;
+        }
+
+        to {
+            height: 0;
+        }
+    }
+
+    @keyframes allDown {
+        from {
+            height: 0;
+        }
+
+        to {
+            height: 443px;
+        }
+    }
+
+    @keyframes allUp {
+        from {
+            height: 443px;
+        }
+
+        to {
+            height: 0;
+        }
+    }
+
+    .all-inner {
+        width: 1494px;
+        height: 443px;
+        margin-left: -747px;
+    }
+
+    .all-inner h3 {
+        line-height: 84px;
+        font-size: 16px;
+    }
+
+    ul.all-title {
+        margin-top: 24px;
+    }
+
+    ul.all-title>li {
+        width: 100px;
+        height: 36px;
+        margin-left: 40px;
+        font-size: 16px;
+        line-height: 36px;
+        background: url(../images/all-bg-Max.png) no-repeat center center;
+    }
+
+    ul.all-title>li:hover {
+        background: url(../images/all-bg-cur-Max.png) no-repeat center center;
+    }
+
+    /* 全部中的频道大全 */
+    .all-body {
+        margin-bottom: 8px;
+    }
+
+    .all-inner h4 {
+        width: 124px;
+        margin-top: 22px;
+        font-size: 16px;
+        line-height: 20px;
+    }
+
+    .all-body>ul {
+        width: 1370px;
+        margin-top: 12px;
+    }
+
+    .all-body>ul>li {
+        height: 47px;
+        margin: 12px 56px 12px 0;
+    }
+
+    .all-body>ul img {
+        width: 102px;
+        height: 47px;
+    }
+
+    .all-footer {
+        margin-bottom: 16px;
+    }
+
+    .all-footer>ul {
+        width: 1370px;
+    }
+
+    .all-footer>ul>li {
+        width: 172px;
+    }
+
+    .all-footer>ul a {
+        font-size: 16px;
+    }
+
+    .banner-logo {
+        width: 243px;
+        height: 27px;
+        top: 27px;
+    }
+
+    /* banner右侧菜单 */
+    .floatText {
+        width: 236px;
+        height: 425px;
+        padding: 30px 40px 39px 40px;
+    }
+
+    /* 正在热播 */
+    .live-on {
+        padding-left: 34px;
+        font-size: 24px;
+        line-height: 74px;
+        background: url(../images/icon-hot-Max.png) no-repeat left center;
+    }
+
+    .live-on.cur {
+        color: #0084FF;
+        background: url(../images/icon-hot-cur-Max.png) no-repeat left center;
+    }
+
+    /* 精彩推荐 */
+    .live-introduce {
+        margin-top: 11px;
+        padding-left: 34px;
+        font-size: 24px;
+        line-height: 52px;
+        background: url(../images/icon-intro-Max.png) no-repeat left center;
+    }
+
+    .live-introduce.cur {
+        color: #0084FF;
+        background: url(../images/icon-intro-cur-Max.png) no-repeat left center;
+    }
+
+    li.bullet {
+        height: 48px;
+        line-height: 48px;
+        font-size: 16px;
+    }
+
+    /* 正在热播剧集容器 */
+    .slider {
+        width: 1178px;
+        margin-left: -747px;
+        top: 104px;
+    }
+
+    .slider>a.button {
+        width: 30px;
+        height: 60px;
+        top: 116px;
+    }
+
+    /* 向左倒退按钮 */
+    .pro {
+        background: url(../images/pro-Max.png);
+    }
+
+    .pro:hover {
+        background: url(../images/pro-cur-Max.png);
+    }
+
+    /* 向右快进按钮 */
+    .next {
+        background: url(../images/next-Max.png);
+    }
+
+    .next:hover {
+        background: url(../images/next-cur-Max.png);
+    }
+
+    /* 剧集内容区 */
+    .con {
+        width: 1004px;
+        padding-right: 174px;
+    }
+
+    .con>ul>li {
+        width: 233px;
+        padding-right: 18px;
+    }
+
+    .con a {
+        width: 100%;
+        height: 291px;
+    }
+
+    .con h5 {
+        height: 52px;
+        margin-top: 6px;
+        font-size: 18px;
+        line-height: 26px; 
+    }
+
+    /* banner底部固定栏 */
+    .navigation-wrapper {
+        height: 153px;
+        padding-bottom: 20px;
+    }
+
+    ul.navigation-left {
+        width: 844px;
+        padding: 30px 0 0 16px;
+    }
+
+    ul.navigation-right li.special {
+        display: block;
+    }
+
+    ul.navigation-left .navt {
+        height: 40px;
+        padding: 0px 21px;
+        margin-bottom: 15px;
+    }
+
+    ul.navigation-left a {
+        line-height: 40px;
+        font-size: 18px;
+    }
+
+    ul.navigation-left i {
+        display: block;
+        width: 24px;
+        height: 24px;
+        margin-top: 8px;
+        margin-right: 13px;
+        float: left;
+    }
+
+    .navt-popup {
+        left: 20px;
+        bottom: 40px
+    }
+
+    .pd-con {
+        left: -167px;
+    }
+
+    .pd-pop-con {
+        width: 1188px;
+        height: 231px;
+        padding: 30px 0 0 30px;
+    }
+
+    .navigation-left .pd-pop-con .arrow {
+        left: 235px;
+    }
+
+    ul.pd-box>li {
+        width: 102px;
+        height: 47px;
+        margin-right: 30px;
+        margin-bottom: 30px;
+    }
+
+    ul.pd-box img {
+        width: 102px;
+        height: 47px;
+    }
+
+    .ty-con {
+        left: 5px;
+    }
+
+    .navigation-left .arrow {
+        left: 40px;
+    }
+
+    .navt-line {
+        width: 1px;
+        height: 73px;
+        margin-top: 41px;
+    }
+
+    ul.navigation-right {
+        width: 440px;
+        padding: 32px 20px 0 40px;
+    }
+
+    .navt-right {
+        height: 37px;
+        margin-bottom: 18px;
+        line-height: 37px;
+    }
+
+    .navt-right a {
+        font-size: 18px;
+    }
+
+    .navt-line-right {
+        display: block;
+        height: 73px;
+        margin-top: 41px;
+    }
+
+    .more-con {
+        bottom: 31px;
+    }
+
+    .phone-wrapper {
+        display: block;
+        width: 130px;
+    }
+
+    .phone-box {
+        width: 55px;
+        margin-top: 41px;
+        margin-left: 40px;
+        float: left;
+    }
+
+    .phone-box i {
+        display: inline-block;
+        width: 42px;
+        height: 50px;
+        margin-left: 10px;
+        margin-bottom: 5px;
+        background: url(../images/phone.png) no-repeat;
+    }
+
+    .phone-box a {
+        font-size: 18px;
+        line-height: 22px;
+    }
+
+    /* 二维码 */
+    .qr-code {
+        margin-top: 39px;
+        margin-left: 29px;
+    }
+
+    /* 大标题 */
+    .title {
+        padding-bottom: 20px;
+        font-size: 36px;
+        line-height: 56px;
+    }
+
+    /* 今日热门 */
+    .popular-wrapper {
+        padding-bottom: 19px;
+    }
+
+    ul.popular-today>li {
+        width: 198px;
+        margin-bottom: 24px;
+        font-size: 16px;
+        line-height: 26px;
+    }
+
+    ul.popular-today li.first {
+        width: 414px;
+    }
+
+    .disappear-first,
+    .disappear-second {
+        display: block;
+    }
+
+    ul.popular-today>li>a {
+        width: 198px;
+        height: 112px;
+    }
+
+    ul.popular-today>li.first>a {
+        width: 414px;
+        height: 232px;
+    }
+
+    /* 热门描述容器 */
+    li.first .text {
+        padding: 20px 20px 35px 20px;
+    }
+
+    /* 小标题 */
+    ul.popular-today h5 {
+        height: 52px;
+        padding-top: 3px;
+    }
+
+    /* 最大的热门标题 */
+    ul.popular-today .text h5 {
+        height: 48px;
+        font-size: 18px;
+        line-height: 48px;
+    }
+
+    /* 直播导视 */
+    /* 节目单 */
+    .program-list {
+        margin-top: 16px;
+        font-size: 16px;
+    }
+
+    /* 点击刷新 */
+    .refresh-wrapper {
+        height: 24px;
+        margin-top: 16px;
+        font-size: 16px;
+    }
+
+    /* 刷新图标 */
+    i.refresh {
+        width: 24px;
+        height: 24px;
+        background: url(../images/refresh-Max.png) no-repeat center center;
+    }
+
+    .refresh-wrapper>span {
+        width: 73px;
+        height: 22px;
+        margin-left: -1px;
+        line-height: 22px;
+    }
+
+    /* 直播节目内容区 */
+    .stream-content {
+        padding: 0px 30px;
+    }
+
+    /* 向左倒退按钮 */
+    .stream-pro {
+        height: 178px;
+    }
+
+    .pro-btn {
+        width: 31px;
+        height: 138px;
+        top: 20px;
+        background: url(../images/stream-pro-Max.png) no-repeat center center;
+    }
+
+    .pro-btn:hover {
+        background: #0084FF url(../images/stream-pro-cur-Max.png) no-repeat center center;
+    }
+
+    .stream-pro .grey-left:hover {
+        background: #e5e5e5 url(../images/stream-pro-cur-Max.png) no-repeat center center;
+    }
+
+    /* 向右快进按钮 */
+    .stream-next {
+        height: 178px;
+    }
+
+    .next-btn {
+        width: 31px;
+        height: 138px;
+        top: 20px;
+        background: url(../images/stream-next-Max.png) no-repeat center center;
+    }
+
+    .next-btn:hover {
+        background: #0084FF url(../images/stream-next-cur-Max.png) no-repeat center center;
+    }
+
+    .stream-next .grey-right:hover {
+        background: #e5e5e5 url(../images/stream-next-cur-Max.png) no-repeat center center;
+    }
+
+    .stream-con li {
+        padding: 30px 0px 28px 0;
+    }
+
+    .stream-con .li-con {
+        width: 198px;
+        height: 110px;
+    }
+
+    .stream-con .time {
+        font-size: 16px;
+        line-height: 26px;
+    }
+
+    .stream-con .brief {
+        height: 48px;
+        font-size: 16px;
+        line-height: 26px;
+    }
+
+    /* 下划线 */
+    .li-line {
+        width: 198px;
+    }
+
+    /* 下边界线 */
+    .bottom-line {
+        background: url(../images/stream-bottom-Max.png) no-repeat center center;
+    }
+
+    /* 本周CCTV容器 */
+    .this-week-wrapper {
+        padding-bottom: 55px;
+    }
+
+    /* 本周CCTV头部 */
+    .this-week-header {
+        height: 134px;
+        background: url(../images/line.jpg) repeat-x 0 106px;
+    }
+
+    .this-week-header>ul {
+        width: 1512px;
+    }
+
+    .this-week-header>ul>li {
+        width: 198px;
+        padding-top: 35px;
+    }
+
+    .this-week-header h3 {
+        font-size: 16px;
+        line-height: 26px;
+    }
+
+    .this-week-header span {
+        padding-bottom: 28px;
+        font-size: 16px;
+        line-height: 26px;
+        background: url(../images/ball-Max.png) no-repeat bottom center;
+    }
+
+    /* 节目列表 */
+    ul.this-week-body {
+        width: 1512px;
+    }
+
+    ul.this-week-body>li {
+        width: 198px;
+    }
+
+    .this-week-program,
+    .television-program {
+        height: 248px;
+    }
+
+    /* 小标题 */
+    ul.this-week-body h5 {
+        margin-top: 10px;
+        font-size: 16px;
+        line-height: 38px;
+    }
+
+    ul.this-week-body p.brief {
+        font-size: 16px;
+        line-height: 26px;
+    }
+
+    /* 浮窗 */
+    .floating-window {
+        width: 238px;
+        height: 353px;
+        left: -20px;
+        top: -10px;
+    }
+
+    .floating-window>a {
+        width: 238px;
+        height: 134px;
+    }
+
+    .float-text h3 {
+        height: 52px;
+        padding-top: 3px;
+        font-size: 16px;
+        line-height: 52px;
+    }
+
+    .float-text span {
+        height: 96px;
+        padding-bottom: 15px;
+        font-size: 16px;
+        line-height: 24px;
+    }
+
+    .float-text .label {
+        height: 52px;
+        line-height: 52px;
+    }
+
+    .float-text .label>a {
+        font-size: 16px;
+    }
+
+    /* 种类分区 */
+    .zone-wrapper {
+        height: 375px;
+        padding: 56px 0;
+        margin-bottom: 50px;
+        background: url(../images/zone-bg-Max.png) no-repeat center center;
+    }
+
+    .zone-wrapper>ul {
+        width: 1500px;
+        padding: 0;
+    }
+
+    .zone-wrapper>ul>li {
+        width: 117px;
+        height: 117px;
+        margin: 4px;
+        line-height: 120px;
+        font-size: 24px;
+    }
+
+    /* 长方形区域 */
+    .zone-wrapper>ul>li.rectangle {
+        width: 242px;
+    }
+
+    .zone-wrapper li.rectangle>img {
+        width: 242px;
+        height: 117px;
+    }
+
+    .square>span {
+        height: 31px;
+        bottom: 16px;
+    }
+
+    /* 听音二维码 */
+    .listen-qrcode {
+        width: 91px;
+        height: 91px;
+        padding: 13px;
+    }
+
+    .listen-qrcode>img {
+        width: 91px;
+        height: 91px;
+    }
+
+    /* 片库外层容器 */
+    .television-wrapper {
+        width: 1494px;
+        padding: 0 30px;
+        padding-bottom: 60px;
+        margin-left: -30px;
+    }
+
+    /* 种类菜单栏 */
+    .type-menu {
+        padding-top: 10px;
+    }
+
+    .type-menu>a {
+        width: 130px;
+        height: 36px;
+        font-size: 20px;
+        line-height: 36px;
+    }
+
+    .type-menu>a.cur-type {
+        border-radius: 18px;
+    }
+
+    /* 片库内容区 */
+    .television-content {
+        width: 1494px;
+        height: 356px;
+    }
+
+    /* 类别分区 */
+    .cont {
+        width: 1494px;
+    }
+
+    .cont>ul {
+        width: 1512px;
+    }
+
+    .cont>ul>li {
+        width: 198px;
+    }
+
+    /* 剧名 */
+    .television-text {
+        height: 58px;
+        line-height: 58px;
+        font-size: 16px;
+    }
+
+    /* 类别标签 */
+    .type-label {
+        width: 160px;
+        height: 42px;
+        margin: 8px auto 0;
+        line-height: 42px;
+        font-size: 16px;
+        background: url(../images/type-label-Max.png) no-repeat center center;
+    }
+
+    /* 看点头部容器 */
+    .attention-header {
+        padding-bottom: 20px;
+    }
+
+    .attention-nav {
+        height: 36px;
+        margin-left: 30px;
+        margin-top: 10px;
+    }
+
+    .attention-nav a {
+        padding: 0px 11px;
+        font-size: 16px;
+        line-height: 36px;
+    }
+
+    .attention-nav a:hover {
+        border-radius: 18px;
+    }
+
+    /* 图片列表 */
+    ul.attention-img-wrapper {
+        width: 1080px;
+    }
+
+    ul.attention-img-wrapper>li {
+        width: 198px;
+        margin-bottom: 15px;
+    }
+
+    ul.attention-img-wrapper>li>a {
+        width: 198px;
+        height: 112px;
+    }
+
+    .attention-text>h3 {
+        height: 52px;
+        margin-top: 6px;
+        font-size: 16px;
+        line-height: 26px;
+    }
+
+    .attention-text>p.brief {
+        line-height: 44px;
+    }
+
+    .audience-wrapper {
+        width: 414px;
+    }
+
+    /* 收视背景 */
+    .audience-bg {
+        width: 140px;
+        height: 68px;
+        right: 24px;
+        background: url(../images/audience-bg-Max.png) no-repeat 0 0;
+    }
+
+    /* 收视头部 */
+    .audience-top {
+        margin-bottom: 26px;
+        font-size: 28px;
+        line-height: 32px;
+    }
+
+    /* 收视内容区 */
+    .audience-content {
+        height: 597px;
+        width: 414px;
+        background-image: url(../images/audience-con-Max.png);
+    }
+
+    .audience-content>ul {
+        padding-top: 17px;
+    }
+
+    .audience-content>ul>li {
+        height: 49px;
+    }
+
+    .audience-content>ul>li:last-child {
+        padding-bottom: 15px;
+    }
+
+    .audience-content>ul i {
+        width: 22px;
+        margin-right: 24px;
+        font-size: 28px;
+    }
+
+    /* 全部榜单 */
+    .audience-all {
+        line-height: 73px;
+        font-size: 18px;
+    }
+
+    /* 人物介绍容器 */
+    .people-wrapper {
+        padding-bottom: 60px;
+        padding-top: 28px;
+    }
+
+    .people-wrapper>ul {
+        width: 1500px;
+    }
+
+    .people-wrapper>ul>li {
+        width: 369px;
+        height: 131px;
+        margin-right: 6px;
+    }
+
+    /* 人物图片容器 */
+    .people-img {
+        width: 154px;
+    }
+
+    /* 人物介绍 */
+    .people-intro {
+        padding: 40px 20px 36px 0;
+    }
+
+    .name {
+        font-size: 18px;
+        line-height: 24px;
+    }
+
+    .people-intro p {
+        font-size: 16px;
+        line-height: 22px;
+    }
+
+    ul.listen-content>li {
+        height: 105px;
+    }
+
+    .listen-img {
+        width: 105px;
+        margin-right: 30px;
+    }
+
+    .listen-img .img-hover {
+        width: 90px;
+        height: 90px;
+    }
+
+    .listen-text {
+        padding: 20px 20px 20px 0px;
+    }
+
+    .listen-text h5 {
+        font-size: 18px;
+        line-height: 38px;
+    }
+
+    .listen-text p {
+        font-size: 16px;
+        line-height: 28px;
+    }
+
+    /* 央视网选 */
+    .shop-wrapper {
+        padding-top: 28px;
+        padding-bottom: 60px;
+    }
+
+    .shop-wrapper img.shop-bg-Min {
+        display: none;
+    }
+
+    .shop-wrapper img.shop-bg-Max {
+        display: block;
+    }
+
+    .time-play-content>ul {
+        padding: 42px 36px 0 36px;
+    }
+
+    .time-play-content>ul>li {
+        height: 88px;
+    }
+
+    .time-play-content>ul p {
+        line-height: 88px;
+    }
+
+    .time-play-content>ul a {
+        line-height: 20px;
+        font-size: 18px;
+    }
+
+    .time-play-content>ul>li:last-child {
+        padding-bottom: 41px;
+    }
+
+    /* 节目品牌 */
+    .brand-wrapper {
+        width: 1512px;
+        padding-bottom: 60px;
+        padding-top: 28px;
+    }
+
+    .brand-item {
+        width: 198px;
+        height: 112px;
+    }
+
+    .brand-mini {
+        width: 198px;
+    }
+
+    .brand-big {
+        width: 630px;
+    }
+
+    /* 央视大全容器 */
+    .program-wrapper {
+        padding-bottom: 60px;
+    }
+
+    .program-header {
+        height: 63px;
+    }
+
+    .program-header>.program-logo {
+        width: 314px;
+        height: 39px;
+    }
+
+    ul.program-body {
+        height: 142px;
+    }
+
+    ul.program-body>li {
+        width: 164px;
+        height: 70.5px;
+    }
+
+    .program-footer {
+        width: 1492px;
+        min-height: 203px;
+    }
+
+    .play-box {
+        width: 255px;
+        min-height: 168px;
+        padding: 20px 20px 16px 55px;
+    }
+
+    .play-text p {
+        margin-bottom: 5px;
+        margin-top: 14px;
+        font-size: 18px;
+        line-height: 22px;
+    }
+
+    .play-text a {
+        font-size: 16px;
+        line-height: 22px;
+    }
+
+    .prom-list {
+        width: 1140px;
+        padding: 30px 0;
+    }
+
+    .prom-list>ul>li {
+        width: 170px;
+        height: 36px;
+        padding-left: 20px;
+        font-size: 16px;
+    }
+
+    /* 体育赛事栏目内容 */
+    .program-footer>.list-box:nth-child(6) .prom-list li {
+        width: 360px;
+    }
+
+    /* 电影 && 电视剧 栏目内容 */
+    .program-footer>.list-box:nth-child(7) .prom-list li,
+    .program-footer>.list-box:nth-child(9) .prom-list li {
+        width: 550px;
+    }
+
+    /* 底部 */
+    footer {
+        height: 300px;
+    }
+
+    .footer-inner {
+        height: 171px;
+        padding-top: 28px;
+    }
+
+    .footer-info {
+        width: 284px;
+    }
+
+    /* 业务概括 */
+    .fix-column>.footer-info:nth-child(2) {
+        width: 284px;
+        padding-left: 42px;
+    }
+
+    /* 更多链接 */
+    .fix-column>.footer-info:nth-child(3) {
+        width: 219px;
+        padding-left: 32px;
+    }
+
+    .footer-info h1 {
+        height: 26.667px;
+        padding-bottom: 28px;
+        padding-top: 0;
+        line-height: 26px;
+        font-size: 20px;
+    }
+
+    .footer-info>ul>li {
+        width: 134px;
+        padding-bottom: 21px;
+        line-height: 14px;
+    }
+
+    .fix-column>.footer-info:nth-child(2)>ul>li {
+        width: 134px;
+    }
+
+    .fix-column>.footer-info:nth-child(3)>ul>li {
+        min-width: 104px;
+        max-width: 208px;
+    }
+
+    .footer-info a {
+        font-size: 14px;
+    }
+
+    /* AIGC */
+    .aigc {
+        width: 294px;
+    }
+
+    .aigc-logo {
+        height: 31px;
+        padding-bottom: 25.5px;
+    }
+
+    .aigc>ul>li {
+        width: 118px;
+        padding-bottom: 14.5px;
+    }
+
+    .aigc>ul>li.short-item {
+        width: 56px;
+    }
+
+    .aigc>ul a {
+        font-size: 14px;
+    }
+
+    .ask {
+        height: 30px;
+        margin-top: 2px;
+        line-height: 32.6px;
+        font-size: 14px;
+    }
+
+    /* 版权信息容器 */
+    .copyright-wrapper {
+        height: 100px;
+    }
+
+    .police-wrapper {
+        width: 127.344px;
+        padding: 22px 0 10.5px 66px;
+    }
+
+    /* 侧边导航栏 */
+    .floatNav {
+        width: 80px;
+        font-size: 16px;
+        line-height: 36px;
+    }
+
+    .floatNav-inner {
+        height: 656px;
+        padding-top: 20px;
+    }
+
+    .floatNav-item {
+        padding-top: 40px;
+        background-position: center 10px;
+    }
+
+    /* 手机访问下的二维码 */
+    .code {
+        right: 80px;
+    }
+}
+
+@media (min-width:1900px) {
+
+    /* 顶部导航栏样式 */
+    .header-inner,
+    ul.current-list,
+    .header-popup {
+        width: 1710px;
+    }
+
+    .nav>li {
+        margin-right: 30px;
+    }
+
+    .nav a {
+        font-size: 14px;
+    }
+
+    .nav li.nav-item {
+        padding-right: 25px;
+        margin-right: 25px;
+    }
+
+    /* 时政图标 */
+    i.group {
+        margin: 19px 0 0 10px;
+    }
+
+    /* 第二个导航条 */
+    .second-header {
+        height: 79px;
+    }
+
+    /* 导航条主体部分 */
+    .second-inner {
+        width: 1710px;
+    }
+
+    nav img {
+        width: 194px;
+        height: 22px;
+        margin: 29px 33px 0 0;
+    }
+
+    ul.second-nav-list>li {
+        line-height: 79px;
+    }
+
+    ul.second-nav-list>li>a {
+        padding: 0 15px;
+        font-size: 16px;
+    }
+
+    .second-inner .banner-search {
+        margin-right: 20px;
+        margin-top: 20px;
+        margin-left: 239px;
+    }
+
+    .second-inner .inputVal {
+        width: 388px;
+        height: 38px;
+    }
+
+    /* 轮播图搜索框 */
+    .banner-search {
+        width: 470px;
+        height: 40px;
+        left: 453px;
+        top: 26px;
+    }
+
+    /* 输入框 */
+    .inputVal {
+        width: 390px;
+        height: 40px;
+        padding-left: 24px;
+        border-top-left-radius: 20px;
+        border-bottom-left-radius: 20px;
+    }
+
+    .inputVal input {
+        width: 310px;
+        height: 40px;
+        font-size: 16px;
+        line-height: 40px;
+    }
+
+    /* 热榜 */
+    .banner-search-hot {
+        height: 40px;
+        padding-left: 26px;
+        font-size: 16px;
+        line-height: 40px;
+        background: url(../images/banner-search-hot.png) no-repeat left center;
+    }
+
+    /* 热搜榜 */
+    ul.search-list,
+    ul.search-result {
+        width: 374px;
+        padding: 13px 9px 10px;
+        left: 20px;
+        top: 40px;
+        font-size: 16px;
+    }
+
+    ul.search-list>span {
+        height: 30px;
+        margin-bottom: 0px;
+        line-height: 30px;
+    }
+
+    ul.search-list>li,
+    ul.search-result>li {
+        height: 32px;
+        margin-bottom: 0px;
+        line-height: 32px;
+    }
+
+    ul.search-list i {
+        margin-right: 7.5px;
+        line-height: 32px;
+    }
+
+    /* 历史记录 */
+    .history-wrapper {
+        margin-bottom: 2px;
+    }
+
+    .history-header {
+        height: 30px;
+        margin-bottom: 3px;
+        line-height: 30px;
+    }
+
+    ul.history {
+        width: 380px;
+        margin-left: -3px;
+    }
+
+    ul.history>li {
+        width: 164px;
+        padding: 0 10px;
+        margin: 0 3px;
+        margin-bottom: 6px;
+    }
+
+    .buttonVal {
+        width: 56px;
+        height: 40px;
+        border-top-right-radius: 20px;
+        border-bottom-right-radius: 20px;
+    }
+
+    .buttonVal input {
+        width: 56px;
+        height: 40px;
+        background: url(../images/icon-searchMax.png) no-repeat center center;
+    }
+
+    i.nav-arrow {
+        margin-left: 0.56px;
+    }
+
+    .headpic {
+        display: block;
+        width: 40px;
+        height: 40px;
+        margin-top: 20px;
+    }
+
+    .second-inner .search-list,
+    .second-inner .search-result {
+        top: 39px;
+        left: 18px;
+    }
+
+    /* 频道大全弹出层 */
+    .channel-popup {
+        top: 80px;
+    }
+
+    /* 频道大全弹出层 */
+    @keyframes channelSlideDown {
+        from {
+            height: 0;
+        }
+
+        to {
+            height: 237px;
+        }
+    }
+
+    @keyframes channelSlideUp {
+        from {
+            height: 237px;
+        }
+
+        to {
+            height: 0;
+        }
+    }
+
+    /* 栏目大全动画 */
+    @keyframes columnSlideDown {
+        from {
+            height: 0;
+        }
+
+        to {
+            height: 293px;
+        }
+    }
+
+    @keyframes columnSlideUp {
+        from {
+            height: 293px;
+        }
+
+        to {
+            height: 0;
+        }
+    }
+
+    .fix-column {
+        width: 1710px;
+    }
+
+    /* 关闭按钮 */
+    .close {
+        margin-right: -747px;
+    }
+
+    /* 分类内容区 */
+    .classify-con {
+        width: 1494px;
+    }
+
+    ul.channel-box {
+        width: 1494px;
+        height: 213px;
+        padding-top: 24px;
+        margin-left: -747px;
+    }
+
+    ul.channel-box>li {
+        height: 47px;
+        margin: 0 72px 24px 0;
+    }
+
+    ul.channel-box img {
+        width: 102px;
+        height: 47px;
+    }
+
+    /* 栏目大全弹出层 */
+    .column-inner {
+        height: 293px;
+    }
+
+    .column-header {
+        height: 60px;
+    }
+
+    .column-header>ul>li {
+        line-height: 60px;
+    }
+
+    .column-header a {
+        padding: 0 26px;
+        font-size: 18px;
+    }
+
+    .column-body {
+        width: 1710px;
+        height: 195px;
+        padding: 38px 0 0 0;
+    }
+
+    .column-body>li {
+        width: 285px;
+    }
+
+    .list {
+        margin-bottom: 26px;
+        line-height: 20px;
+        font-size: 16px;
+    }
+
+    /* 看点弹出层 */
+    .highlight-pop {
+        width: 279px;
+        margin: 0 -139px;
+        border-radius: 0 0 5px 5px;
+        left: 50%;
+        top: 80px;
+    }
+
+    .highlight-inner {
+        height: 188px;
+    }
+
+    .highlight-pop ul {
+        padding: 38px 40px 12px 40px;
+    }
+
+    .highlight-pop ul>li {
+        width: 85px;
+    }
+
+    .highlight-pop ul>li:last-child {
+        margin-left: 29px;
+    }
+
+    .highlight-pop ul span {
+        display: block;
+        width: 85px;
+        margin-bottom: 26px;
+        line-height: 20px;
+    }
+
+    .highlight-pop ul a {
+        line-height: 20px;
+        font-size: 16px;
+    }
+
+    @keyframes highlightDown {
+        from {
+            height: 0;
+        }
+
+        to {
+            height: 188px;
+        }
+    }
+
+    @keyframes highlightUp {
+        from {
+            height: 188px;
+        }
+
+        to {
+            height: 0;
+        }
+    }
+
+    @keyframes allDown {
+        from {
+            height: 0;
+        }
+
+        to {
+            height: 443px;
+        }
+    }
+
+    @keyframes allUp {
+        from {
+            height: 443px;
+        }
+
+        to {
+            height: 0;
+        }
+    }
+
+    .all-inner {
+        width: 1710px;
+        height: 443px;
+        margin-left: -855px;
+    }
+
+    .all-inner h3 {
+        line-height: 84px;
+        font-size: 16px;
+    }
+
+    ul.all-title {
+        margin-top: 24px;
+    }
+
+    ul.all-title>li {
+        width: 100px;
+        height: 36px;
+        margin-left: 40px;
+        font-size: 16px;
+        line-height: 36px;
+        background: url(../images/all-bg-Max.png) no-repeat center center;
+    }
+
+    ul.all-title>li:hover {
+        background: url(../images/all-bg-cur-Max.png) no-repeat center center;
+    }
+
+    /* 全部中的频道大全 */
+    .all-body {
+        margin-bottom: 8px;
+    }
+
+    .all-inner h4 {
+        width: 164px;
+        margin-top: 22px;
+        font-size: 16px;
+        line-height: 20px;
+    }
+
+    .all-body>ul {
+        width: 1546px;
+        margin-top: 12px;
+    }
+
+    .all-body>ul>li {
+        height: 47px;
+        margin: 12px 78px 12px 0;
+    }
+
+    .all-body>ul img {
+        width: 102px;
+        height: 47px;
+    }
+
+    .all-footer {
+        margin-bottom: 16px;
+    }
+
+    .all-footer>ul {
+        width: 1370px;
+    }
+
+    .all-footer>ul>li {
+        width: 172px;
+    }
+
+    .all-footer>ul a {
+        font-size: 16px;
+    }
+
+    /* banner部分 */
+    .banner-wrapper {
+        height: 565px;
+    }
+
+    .banner-logo {
+        width: 243px;
+        height: 27px;
+        top: 33px;
+    }
+
+    /* 右侧菜单 */
+    .floatText {
+        width: 248px;
+        height: 481px;
+        padding: 30px 56px 54px 56px;
+    }
+
+    /* 正在热播 */
+    .live-on {
+        padding-left: 34px;
+        font-size: 28px;
+        line-height: 108px;
+        background: url(../images/icon-hot-Max.png) no-repeat left center;
+    }
+
+    .live-on.cur {
+        color: #0084FF;
+        background: url(../images/icon-hot-cur-Max.png) no-repeat left center;
+    }
+
+    /* 精彩推荐 */
+    .live-introduce {
+        margin-top: 26px;
+        padding-left: 34px;
+        font-size: 28px;
+        line-height: 52px;
+        background: url(../images/icon-intro-Max.png) no-repeat left center;
+    }
+
+    .live-introduce.cur {
+        color: #0084FF;
+        background: url(../images/icon-intro-cur-Max.png) no-repeat left center;
+    }
+
+    li.bullet {
+        height: 48px;
+        line-height: 48px;
+        font-size: 18px;
+    }
+
+    /* 正在热播剧集容器 */
+    .slider {
+        width: 1350px;
+        margin-left: -855px;
+        top: 163px;
+    }
+
+    .slider>a.button {
+        width: 30px;
+        height: 60px;
+        top: 115px;
+    }
+
+    /* 向左倒退按钮 */
+    .pro {
+        background: url(../images/pro-Max.png);
+    }
+
+    .pro:hover {
+        background: url(../images/pro-cur-Max.png);
+    }
+
+    /* 向右快进按钮 */
+    .next {
+        background: url(../images/next-Max.png);
+    }
+
+    .next:hover {
+        background: url(../images/next-cur-Max.png);
+    }
+
+    /* 剧集内容区 */
+    .con {
+        width: 1185px;
+        padding-right: 166px;
+    }
+
+    .con>ul>li {
+        width: 219px;
+        padding-right: 18px;
+    }
+
+    .con a {
+        width: 100%;
+        height: 272px;
+    }
+
+    .con h5 {
+        height: 52px;
+        margin-top: 8px;
+        font-size: 18px;
+        line-height: 26px;
+    }
+
+    /* banner底部固定栏 */
+    .navigation-wrapper {
+        height: 149px;
+        padding-bottom: 25px;
+    }
+
+    ul.navigation-left {
+        width: 848px;
+        padding: 30px 0 0 32px;
+    }
+
+    ul.navigation-right li.special {
+        display: block;
+    }
+
+    ul.navigation-left .navt {
+        height: 40px;
+        margin-bottom: 15px;
+        padding: 0px 21px;
+    }
+
+    ul.navigation-left a {
+        line-height: 40px;
+        font-size: 18px;
+    }
+
+    ul.navigation-left i {
+        display: block;
+        width: 24px;
+        height: 24px;
+        margin-top: 8px;
+        margin-right: 13px;
+        float: left;
+    }
+
+    .disappear-zero {
+        display: block;
+    }
+
+    .navt-popup {
+        left: 20px;
+        bottom: 40px
+    }
+
+    .pd-con {
+        left: -167px;
+    }
+
+    .pd-pop-con {
+        width: 1188px;
+        height: 231px;
+        padding: 30px 0 0 30px;  
+    }
+
+    .navigation-left .pd-pop-con .arrow {
+        left: 235px;
+    }
+
+    ul.pd-box>li {
+        width: 102px;
+        height: 47px;
+        margin-right: 30px;
+        margin-bottom: 30px;
+    }
+
+    ul.pd-box img {
+        width: 102px;
+        height: 47px;
+    }
+
+    .ty-con {
+        left: 5px;
+    }
+
+    .navigation-left .arrow {
+        left: 40px;
+    }
+
+    .navt-line {
+        width: 1px;
+        height: 73px;
+        margin-top: 41px;
+    }
+
+    ul.navigation-right {
+        width: 559px;
+        padding: 32px 20px 0 50px;
+    }
+
+    .navt-right {
+        height: 37px;
+        margin-bottom: 18px;
+        line-height: 37px;
+    }
+
+    .navt-right a {
+        font-size: 18px;
+    }
+
+    .navt-line-right {
+        display: block;
+        height: 75px;
+        margin-top: 41px;
+    }
+
+    .more-con {
+        bottom: 31px;
+    }
+
+    .phone-wrapper {
+        display: block;
+        width: 198px;
+    }
+
+    .phone-box {
+        width: 55px;
+        margin-top: 37px;
+        margin-left: 73px;
+        float: left;
+    }
+
+    .phone-box i {
+        display: inline-block;
+        width: 42px;
+        height: 50px;
+        margin-left: 10px;
+        margin-bottom: 8px;
+        background: url(../images/phone.png) no-repeat;
+    }
+
+    .phone-box a {
+        font-size: 18px;
+        line-height: 23px;
+    }
+
+    /* 二维码 */
+    .qr-code {
+        margin-top: 37px;
+        margin-left: 60px;
+    }
+
+    /* 大标题 */
+    .title {
+        padding-bottom: 20px;
+        font-size: 36px;
+        line-height: 56px;
+    }
+
+    /* 今日热门 */
+    .popular-wrapper {
+        padding-bottom: 19px;
+    }
+
+    ul.popular-today>li {
+        width: 198px;
+        margin-bottom: 24px;
+        font-size: 16px;
+        line-height: 26px;
+    }
+
+    ul.popular-today li.first {
+        width: 414px;
+    }
+
+    .disappear-first,
+    .disappear-second {
+        display: block;
+    }
+
+    ul.popular-today>li>a {
+        width: 198px;
+        height: 112px;
+    }
+
+    ul.popular-today>li.first>a {
+        width: 414px;
+        height: 232px;
+    }
+
+    /* 热门描述容器 */
+    li.first .text {
+        padding: 20px 20px 35px 20px;
+    }
+
+    /* 小标题 */
+    ul.popular-today h5 {
+        height: 52px;
+        padding-top: 2px;
+    }
+
+    /* 最大的热门标题 */
+    ul.popular-today .text h5 {
+        height: 45px;
+        font-size: 18px;
+        line-height: 45px;
+    }
+
+    /* 直播导视 */
+    /* 节目单 */
+    .program-list {
+        margin-top: 16px;
+        margin-left: 24px;
+        font-size: 16px;
+    }
+
+    /* 点击刷新 */
+    .refresh-wrapper {
+        height: 24px;
+        margin-top: 16px;
+        font-size: 16px;
+    }
+
+    /* 刷新图标 */
+    i.refresh {
+        width: 24px;
+        height: 24px;
+        background: url(../images/refresh-Max.png) no-repeat center center;
+    }
+
+    .refresh-wrapper>span {
+        width: 73px;
+        height: 22px;
+        margin-left: -1px;
+        line-height: 22px;
+    }
+
+    /* 直播节目内容区 */
+    .stream-content {
+        padding: 0px 30px;
+    }
+
+    /* 向左倒退按钮 */
+    .stream-pro {
+        height: 178px;
+    }
+
+    .pro-btn {
+        width: 31px;
+        height: 138px;
+        top: 20px;
+        background: url(../images/stream-pro-Max.png) no-repeat center center;
+    }
+
+    .pro-btn:hover {
+        background: #0084FF url(../images/stream-pro-cur-Max.png) no-repeat center center;
+    }
+
+    .stream-pro .grey-left:hover {
+        background: #e5e5e5 url(../images/stream-pro-cur-Max.png) no-repeat center center;
+    }
+
+    /* 向右快进按钮 */
+    .stream-next {
+        height: 178px;
+    }
+
+    .next-btn {
+        width: 31px;
+        height: 138px;
+        top: 20px;
+        background: url(../images/stream-next-Max.png) no-repeat center center;
+    }
+
+    .next-btn:hover {
+        background: #0084FF url(../images/stream-next-cur-Max.png) no-repeat center center;
+    }
+
+    .stream-next .grey-right:hover {
+        background: #e5e5e5 url(../images/stream-next-cur-Max.png) no-repeat center center;
+    }
+
+    .stream-con li {
+        padding: 30px 0px 28px 0;
+    }
+
+    .stream-con .li-con {
+        width: 195px;
+        height: 110px;
+    }
+
+    .stream-con .time {
+        font-size: 16px;
+        line-height: 26px;
+    }
+
+    .stream-con .brief {
+        height: 48px;
+        font-size: 16px;
+        line-height: 26px;
+    }
+
+    /* 下划线 */
+    .li-line {
+        width: 195px;
+    }
+
+    /* 下边界线 */
+    .bottom-line {
+        background: url(../images/stream-bottom-Huge.png) no-repeat center center;
+    }
+
+    /* 本周CCTV容器 */
+    .this-week-wrapper {
+        padding-bottom: 55px;
+    }
+
+    /* 本周CCTV头部 */
+    .this-week-header {
+        height: 134px;
+        background: url(../images/line.jpg) repeat-x 0 106px;
+    }
+
+    .this-week-header>ul {
+        width: 1728px;
+    }
+
+    .this-week-header>ul>li {
+        width: 198px;
+        padding-top: 35px;  
+    }
+
+    .this-week-header h3 {
+        font-size: 16px;
+        line-height: 26px;
+    }
+
+    .this-week-header span {
+        padding-bottom: 28px;
+        font-size: 16px;
+        line-height: 26px;
+        background: url(../images/ball-Max.png) no-repeat bottom center;
+    }
+
+    /* 节目列表 */
+    ul.this-week-body {
+        width: 1728px;
+    }
+
+    ul.this-week-body>li {
+        width: 198px;
+    }
+
+    .this-week-program,
+    .television-program {
+        height: 248px;
+    }
+
+    /* 小标题 */
+    ul.this-week-body h5 {
+        margin-top: 10px;
+        font-size: 16px;
+        line-height: 38px;
+    }
+
+    ul.this-week-body p.brief {
+        font-size: 16px;
+        line-height: 26px;
+    }
+
+    /* 浮窗 */
+    .floating-window {
+        width: 238px;
+        height: 353px;
+        left: -20px;
+        top: -10px;
+    }
+
+    .floating-window>a {
+        width: 238px;
+        height: 134px;
+    }
+
+    .float-text h3 {
+        height: 52px;
+        padding-top: 3px;
+        line-height: 52px;
+        font-size: 16px;
+    }
+
+    .float-text span {
+        height: 96px;
+        padding-bottom: 15px;
+        font-size: 16px;
+        line-height: 24px;
+    }
+
+    .float-text .label {
+        height: 52px;
+        line-height: 52px;
+    }
+
+    .float-text .label>a {
+        font-size: 16px;
+    }
+
+    /* 种类分区 */
+    .zone-wrapper {
+        height: 429px;
+        padding: 55px 0;
+        margin-bottom: 50px;
+        background: url(../images/zone-bg-Huge.png) no-repeat center center;
+    }
+
+    .zone-wrapper>ul {
+        width: 1716px;
+        padding: 0;
+    }
+
+    .zone-wrapper>ul>li {
+        width: 133px;
+        height: 133px;
+        margin: 5px;
+        line-height: 136px;
+        font-size: 24px;
+    }
+
+    /* 长方形区域 */
+    .zone-wrapper>ul>li.rectangle {
+        width: 276px;
+    }
+
+    .zone-wrapper li.rectangle>img {
+        width: 276px;
+        height: 133px;
+    }
+
+    .square>span {
+        height: 32px;
+        bottom: 16px;
+    }
+
+    /* 听音二维码 */
+    .listen-qrcode {
+        width: 93px;
+        height: 93px;
+        padding: 20px;
+    }
+
+    .listen-qrcode>img {
+        width: 93px;
+        height: 93px;
+    }
+
+    /* 片库外层容器 */
+    .television-wrapper {
+        width: 1710px;
+        padding: 0 30px;
+        padding-bottom: 60px;
+        margin-left: -30px;
+    }
+
+    /* 种类菜单栏 */
+    .type-menu {
+        padding-top: 10px;
+    }
+
+    .type-menu>a {
+        width: 130px;
+        height: 36px;
+        font-size: 20px;
+        line-height: 36px;
+    }
+
+    .type-menu>a.cur-type {
+        border-radius: 18px;
+    }
+
+    /* 片库内容区 */
+    .television-content {
+        width: 1710px;
+        height: 356px;
+    }
+
+    /* 类别分区 */
+    .cont {
+        width: 1710px;
+    }
+
+    .cont>ul {
+        width: 1728px;
+    }
+
+    .cont>ul>li {
+        width: 198px;
+    }
+
+    /* 剧名 */
+    .television-text {
+        height: 58px;
+        line-height: 58px;
+        font-size: 16px;
+    }
+
+    /* 类别标签 */
+    .type-label {
+        width: 160px;
+        height: 42px;
+        margin: 8px auto 0;
+        line-height: 42px;
+        font-size: 16px;
+        background: url(../images/type-label-Max.png) no-repeat center center;
+    }
+
+    /* 看点头部容器 */
+    .attention-header {
+        padding-bottom: 20px;
+    }
+
+    .attention-nav {
+        height: 36px;
+        margin-left: 30px;
+        margin-top: 10px;
+    }
+
+    .attention-nav a {
+        padding: 0px 11px;
+        font-size: 16px;
+        line-height: 36px;
+    }
+
+    .attention-nav a:hover {
+        border-radius: 18px;
+    }
+
+    /* 图片列表 */
+    ul.attention-img-wrapper {
+        width: 1296px;
+    }
+
+    ul.attention-img-wrapper>li {
+        width: 198px;
+        margin-bottom: 15px;
+    }
+
+    ul.attention-img-wrapper>li>a {
+        width: 198px;
+        height: 112px;
+    }
+
+    .attention-text>h3 {
+        height: 52px;
+        margin-top: 6px;
+        font-size: 16px;
+        line-height: 26px; 
+    }
+
+    .attention-text>p.brief {
+        line-height: 44px;
+    }
+
+    .audience-wrapper {
+        width: 414px;
+    }
+
+    /* 收视背景 */
+    .audience-bg {
+        width: 140px;
+        height: 68px;
+        right: 24px;
+        background: url(../images/audience-bg-Max.png) no-repeat 0 0;
+    }
+
+    /* 收视头部 */
+    .audience-top {
+        margin-bottom: 26px;
+        font-size: 28px;
+        line-height: 32px;
+    }
+
+    /* 收视内容区 */
+    .audience-content {
+        width: 414px;
+        height: 597px;
+        background-image: url(../images/audience-con-Max.png);
+    }
+
+    .audience-content>ul {
+        padding-top: 18px;
+    }
+
+    .audience-content>ul>li {
+        height: 49px;
+    }
+
+    .audience-content>ul a {
+        font-size: 18px;
+    }
+
+    .audience-content>ul>li:last-child {
+        padding-bottom: 15px;
+    }
+
+    .audience-content>ul i {
+        width: 22px;
+        margin-right: 24px;
+        font-size: 28px;
+    }
+
+    /* 全部榜单 */
+    .audience-all {
+        line-height: 73px;
+        font-size: 18px;
+    }
+
+    /* 人物介绍容器 */
+    .people-wrapper {
+        padding-bottom: 60px;
+        padding-top: 28px;
+    }
+
+    .people-wrapper>ul {
+        width: 1715px;
+    }
+
+    .people-wrapper>ul>li {
+        width: 338px;
+        height: 120px;
+        margin-right: 5px;
+    }
+
+    /* 人物图片容器 */
+    .people-img {
+        width: 139px;
+    }
+
+    /* 人物介绍 */
+    .people-intro {
+        padding: 34px 20px 30px 0;
+    }
+
+    .name {
+        font-size: 18px;
+        line-height: 24px;
+    }
+
+    .people-intro p {
+        font-size: 16px;
+        line-height: 22px;
+    }
+
+    ul.listen-content>li {
+        height: 105px;
+    }
+
+    .listen-img {
+        width: 105px;
+        margin-right: 30px;
+    }
+
+    .listen-img .img-hover {
+        width: 90px;
+        height: 90px;
+    }
+
+    .listen-text {
+        padding: 20px 20px 20px 0px;
+    }
+
+    .listen-text h5 {
+        font-size: 18px;
+        line-height: 38px;
+    }
+
+    .listen-text p {
+        font-size: 16px;
+        line-height: 28px;
+    }
+
+    /* 央视网选 */
+    .shop-wrapper {
+        padding-bottom: 60px;
+        padding-top: 28px;
+    }
+
+    .shop-wrapper img.shop-bg-Min {
+        display: none;
+    }
+
+    .shop-wrapper img.shop-bg-Huge {
+        display: block;
+    }
+
+    .time-play-content>ul {
+        padding: 42px 36px 0 36px;
+    }
+
+    .time-play-content>ul>li {
+        height: 88px;
+    }
+
+    .time-play-content>ul p {
+        line-height: 88px;
+    }
+
+    .time-play-content>ul a {
+        line-height: 20px;
+        font-size: 18px;
+    }
+
+    .time-play-content>ul>li:last-child {
+        padding-bottom: 41px;
+    }
+
+    /* 节目品牌 */
+    .brand-wrapper {
+        width: 1728px;
+        padding-bottom: 60px;
+        padding-top: 28px;
+    }
+
+    .brand-item {
+        width: 198px;
+        height: 112px;
+    }
+
+    .brand-mini {
+        width: 198px;
+    }
+
+    .brand-big {
+        width: 630px;
+    }
+
+    /* 央视大全容器 */
+    .program-wrapper {
+        padding-bottom: 60px;
+    }
+
+    .program-header {
+        height: 63px;
+    }
+
+    .program-header>.program-logo {
+        width: 314px;
+        height: 39px;
+    }
+
+    ul.program-body {
+        height: 142px;
+    }
+
+    ul.program-body>li {
+        width: 188px;
+        height: 70.5px;
+    }
+
+    .program-footer {
+        width: 1708px;
+        min-height: 203px;
+    }
+
+    .play-box {
+        width: 294px;
+        min-height: 168px;
+        padding: 20px 20px 16px 65px;
+    }
+
+    .play-text p {
+        margin-bottom: 5px;
+        margin-top: 11px;
+        font-size: 18px;
+        line-height: 22px;
+    }
+
+    .play-text a {
+        font-size: 16px;
+        line-height: 22px;
+    }
+
+    .prom-list {
+        width: 1290px;
+        padding: 30px 0;
+    }
+
+    .prom-list>ul>li {
+        width: 178px;
+        height: 36px;
+        padding-left: 40px;
+        font-size: 16px;
+    }
+
+    .prom-list>ul>li:first-child,
+    .prom-list>ul>li:nth-child(7),
+    .prom-list>ul>li:nth-child(13),
+    .prom-list>ul>li:nth-child(19) {
+        padding-left: 20px;
+    }
+
+    /* 体育赛事栏目内容 */
+    .program-footer>.list-box:nth-child(6) .prom-list li {
+        width: 392px;
+    }
+
+    /* 电影 && 电视剧 栏目内容 */
+    .program-footer>.list-box:nth-child(7) .prom-list li,
+    .program-footer>.list-box:nth-child(9) .prom-list li {
+        width: 590px;
+    }
+
+    /* 底部 */
+    footer {
+        height: 300px;
+    }
+
+    .footer-inner {
+        height: 171px;
+        padding-top: 28px;
+    }
+
+    .footer-info {
+        width: 284px;
+    }
+
+    /* 业务概括 */
+    .fix-column>.footer-info:nth-child(2) {
+        width: 284px;
+        padding-left: 42px;
+    }
+
+    /* 更多链接 */
+    .fix-column>.footer-info:nth-child(3) {
+        width: 219px;
+        padding-left: 32px;
+    }
+
+    .footer-info h1 {
+        height: 26.667px;
+        padding-bottom: 28px;
+        padding-top: 0;
+        line-height: 26px;
+        font-size: 20px;
+    }
+
+    .footer-info>ul>li {
+        width: 134px;
+        padding-bottom: 21px;
+        line-height: 14px;
+    }
+
+    .fix-column>.footer-info:nth-child(2)>ul>li {
+        width: 134px;
+    }
+
+    .fix-column>.footer-info:nth-child(2)>ul>li {
+        width: 134px;
+    }
+
+    .fix-column>.footer-info:nth-child(3)>ul>li {
+        min-width: 104px;
+        max-width: 208px;
+    }
+
+    .footer-info a {
+        font-size: 14px;
+    }
+
+    /* AIGC */
+    .aigc {
+        width: 294px;
+    }
+
+    .aigc-logo {
+        height: 31px;
+        padding-bottom: 25.5px;
+    }
+
+    .aigc>ul>li {
+        width: 118px;
+        padding-bottom: 14.5px;
+    }
+
+    .aigc>ul>li.short-item {
+        width: 56px;
+    }
+
+    .aigc>ul a {
+        font-size: 14px;
+    }
+
+    .ask {
+        height: 30px;
+        margin-top: 2px;
+        line-height: 31.6px;
+        font-size: 14px;
+    }
+
+    /* 版权信息容器 */
+    .copyright-wrapper {
+        height: 100px;
+    }
+
+    .police-wrapper {
+        width: 127.344px;
+        padding: 22px 0 10.5px 66px;
+    }
+
+    .police-wrapper>span {
+        line-height: 17px;
+    }
+
+    /* 侧边导航栏 */
+    .floatNav {
+        width: 80px;
+        font-size: 16px;
+        line-height: 36px;
+    }
+
+    .floatNav-inner {
+        height: 656px;
+        padding-top: 20px;
+    }
+
+    .floatNav-item {
+        padding-top: 40px;
+        background-position: center 10px;
+    }
+
+    /* 手机访问下的二维码 */
+    .code {
+        right: 80px;
+    }
+}
